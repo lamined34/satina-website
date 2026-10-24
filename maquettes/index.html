@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satina — Choix de maquette</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Inter", sans-serif; background: #f2f4f7; color: #1c2430; line-height: 1.6; padding: 64px 16px; }
+    .wrap { max-width: 1100px; margin: 0 auto; }
+    h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+    .intro { color: #5d6877; margin: 10px 0 44px; max-width: 640px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .card { background: #fff; border-radius: 16px; overflow: hidden; text-decoration: none; color: inherit; box-shadow: 0 2px 6px rgba(0,0,0,.05); transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(0,0,0,.1); }
+    .preview { height: 190px; position: relative; overflow: hidden; }
+    .p1 { background: linear-gradient(110deg, #0f2a4a 60%, #e8772e 60% 64%, #0f2a4a 64%); }
+    .p2 { background: radial-gradient(circle at 80% 20%, rgba(245,197,24,.35), transparent 50%), #0c0f14; }
+    .p3 { background: #f7f3ec; }
+    .preview span { position: absolute; left: 22px; bottom: 22px; font-size: 1.6rem; font-weight: 700; }
+    .p1 span { color: #fff; font-family: Georgia, serif; }
+    .p2 span { color: #f5c518; }
+    .p3 span { color: #1f1d1a; font-family: Georgia, serif; font-weight: 400; }
+    .p3::before { content: ""; position: absolute; right: 22px; top: 22px; width: 45%; height: 50px; background: repeating-linear-gradient(90deg, #b8542f 0 10px, #a54926 10px 12px); border-radius: 3px; }
+    .p2::before { content: ""; position: absolute; right: 22px; top: 30px; width: 40%; height: 46px; background: repeating-linear-gradient(90deg, #2ec4b6 0 10px, #23a094 10px 12px); border-radius: 4px; transform: rotate(-6deg); }
+    .body { padding: 22px; flex: 1; }
+    .body h2 { font-size: 1.2rem; margin-bottom: 6px; }
+    .body p { color: #5d6877; font-size: .95rem; }
+    .open { display: inline-block; margin-top: 14px; font-weight: 600; color: #e8772e; }
+    .note { margin-top: 40px; font-size: .9rem; color: #5d6877; }
+    @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Satina : 3 propositions de maquette</h1>
+    <p class="intro">Trois directions visuelles pour le site de présentation. Les textes, chiffres et coordonnées sont provisoires et seront remplacés par le vrai contenu.</p>
+    <div class="grid">
+      <a class="card" href="1-classique/">
+        <div class="preview p1"><span>Classique</span></div>
+        <div class="body"><h2>1. Classique</h2><p>Bleu marine et orange, rassurant et professionnel. Mise en page d'entreprise traditionnelle, idéale pour inspirer confiance.</p><span class="open">Voir la maquette →</span></div>
+      </a>
+      <a class="card" href="2-moderne/">
+        <div class="preview p2"><span>Moderne</span></div>
+        <div class="body"><h2>2. Moderne</h2><p>Fond sombre, typographie XXL, couleurs vives et animations. Une image dynamique et actuelle, avec filtre de produits.</p><span class="open">Voir la maquette →</span></div>
+      </a>
+      <a class="card" href="3-minimaliste/">
+        <div class="preview p3"><span>Minimaliste</span></div>
+        <div class="body"><h2>3. Minimaliste</h2><p>Tons crème et terre cuite, beaucoup d'espace, style éditorial. Élégant et chaleureux, centré sur l'essentiel.</p><span class="open">Voir la maquette →</span></div>
+      </a>
+    </div>
+    <p class="note">Les trois maquettes s'adaptent aux mobiles.</p>
+  </div>
+</body>
+</html>

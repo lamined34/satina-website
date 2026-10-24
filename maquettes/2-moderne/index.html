@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satina — Import & Distribution</title>
+  <meta name="description" content="Satina : importation de denrées alimentaires par conteneurs et distribution en gros, demi-gros et détail.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0f14;
+      --bg-2: #141922;
+      --card: #1a202b;
+      --line: #262e3b;
+      --text: #e9edf3;
+      --muted: #8d97a7;
+      --accent: #f5c518;
+      --accent-2: #2ec4b6;
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Inter", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    h1, h2, h3, .display { font-family: "Space Grotesk", sans-serif; line-height: 1.05; letter-spacing: -.02em; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1200px, 100% - 32px); margin-inline: auto; }
+    section { padding: 110px 0; }
+    .label { display: inline-flex; align-items: center; gap: 8px; font-size: .78rem; text-transform: uppercase; letter-spacing: .18em; color: var(--accent); font-weight: 600; }
+    .label::before { content: ""; width: 24px; height: 2px; background: var(--accent); }
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; border-radius: 99px; font-weight: 600; transition: .25s; border: 0; cursor: pointer; font: inherit; font-weight: 600; }
+    .btn-accent { background: var(--accent); color: #111; }
+    .btn-accent:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(245,197,24,.35); }
+    .btn-ghost { border: 1px solid var(--line); color: var(--text); }
+    .btn-ghost:hover { border-color: var(--text); }
+    .btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+    /* Header */
+    header { position: fixed; inset: 0 0 auto; z-index: 50; transition: background .3s, backdrop-filter .3s; }
+    header.scrolled { background: rgba(12,15,20,.8); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    header .container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+    .logo { font-family: "Space Grotesk"; font-weight: 700; font-size: 1.6rem; display: flex; align-items: center; gap: 10px; }
+    .logo i { width: 14px; height: 14px; background: var(--accent); border-radius: 3px; display: inline-block; transform: rotate(45deg); }
+    nav ul { display: flex; gap: 6px; list-style: none; background: rgba(255,255,255,.04); border: 1px solid var(--line); padding: 6px; border-radius: 99px; }
+    nav a { display: block; padding: 8px 18px; border-radius: 99px; font-size: .92rem; color: var(--muted); transition: .2s; }
+    nav a:hover { color: var(--text); background: rgba(255,255,255,.06); }
+    .menu-toggle { display: none; background: none; border: 0; color: var(--text); cursor: pointer; }
+    .menu-toggle svg { width: 30px; height: 30px; fill: currentColor; }
+
+    /* Hero */
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 140px 0 80px; position: relative; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; width: 700px; height: 700px; right: -200px; top: -150px; background: radial-gradient(circle, rgba(245,197,24,.18), transparent 65%); }
+    .hero::after { content: ""; position: absolute; width: 600px; height: 600px; left: -250px; bottom: -250px; background: radial-gradient(circle, rgba(46,196,182,.13), transparent 65%); }
+    .hero .container { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
+    .hero h1 { font-size: clamp(2.8rem, 7.5vw, 6rem); font-weight: 700; margin: 22px 0 26px; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero h1 .outline { color: transparent; -webkit-text-stroke: 1.5px var(--text); }
+    .hero p { color: var(--muted); font-size: 1.15rem; max-width: 520px; margin-bottom: 36px; }
+    .hero .actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* Pile de conteneurs en CSS */
+    .stack { position: relative; aspect-ratio: 1; }
+    .box { position: absolute; border-radius: 6px; box-shadow: 0 30px 50px rgba(0,0,0,.5); animation: float 6s ease-in-out infinite; }
+    .box::after { content: attr(data-label); position: absolute; left: 14px; top: 10px; font: 700 .75rem "Space Grotesk"; letter-spacing: .15em; color: rgba(0,0,0,.45); }
+    .box.b1 { width: 78%; height: 26%; left: 0; bottom: 8%; background: repeating-linear-gradient(90deg, #f5c518 0 16px, #d9ab0b 16px 20px); }
+    .box.b2 { width: 70%; height: 26%; right: 0; bottom: 38%; background: repeating-linear-gradient(90deg, #2ec4b6 0 16px, #23a094 16px 20px); animation-delay: -2s; }
+    .box.b3 { width: 56%; height: 26%; left: 10%; bottom: 68%; background: repeating-linear-gradient(90deg, #ff6b4a 0 16px, #dc5133 16px 20px); animation-delay: -4s; }
+    @keyframes float { 50% { transform: translateY(-12px); } }
+
+    /* Bandeau défilant */
+    .marquee { border-block: 1px solid var(--line); background: var(--bg-2); padding: 22px 0; overflow: hidden; }
+    .marquee-track { display: flex; gap: 48px; width: max-content; animation: scroll 30s linear infinite; }
+    .marquee span { font: 700 clamp(1.4rem, 3vw, 2.2rem) "Space Grotesk"; white-space: nowrap; display: flex; align-items: center; gap: 48px; color: var(--muted); }
+    .marquee span::after { content: "✦"; color: var(--accent); font-size: 1.2rem; }
+    @keyframes scroll { to { transform: translateX(-50%); } }
+
+    /* Section titres */
+    .head { display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 56px; flex-wrap: wrap; }
+    .head h2 { font-size: clamp(2.2rem, 5vw, 3.8rem); margin-top: 14px; max-width: 700px; }
+    .head p { color: var(--muted); max-width: 380px; }
+
+    /* À propos (bento) */
+    .bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(190px, auto); gap: 18px; }
+    .tile { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; display: flex; flex-direction: column; justify-content: space-between; transition: border-color .3s; }
+    .tile:hover { border-color: #3a4456; }
+    .tile.big { grid-column: span 2; grid-row: span 2; background: linear-gradient(150deg, #1f2633, #161b24); }
+    .tile.wide { grid-column: span 2; }
+    .tile.accent { background: var(--accent); color: #111; border-color: var(--accent); }
+    .tile.accent p { color: #3a3205; }
+    .tile h3 { font-size: 1.5rem; margin-bottom: 10px; }
+    .tile.big h3 { font-size: 2.2rem; }
+    .tile p { color: var(--muted); }
+    .tile .num { font: 700 3.6rem "Space Grotesk"; line-height: 1; }
+    .tile svg { width: 36px; height: 36px; fill: var(--accent-2); }
+
+    /* Produits */
+    .products { background: var(--bg-2); }
+    .filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px; }
+    .filters button { background: transparent; border: 1px solid var(--line); color: var(--muted); padding: 10px 20px; border-radius: 99px; cursor: pointer; font: inherit; transition: .2s; }
+    .filters button.active, .filters button:hover { background: var(--text); color: #111; border-color: var(--text); }
+    .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .product { position: relative; border-radius: var(--radius); overflow: hidden; background: var(--card); border: 1px solid var(--line); transition: transform .3s; }
+    .product:hover { transform: translateY(-6px); }
+    .product-visual { aspect-ratio: 4/3; display: grid; place-items: center; position: relative; }
+    .product-visual .initial { font: 700 5rem "Space Grotesk"; color: rgba(0,0,0,.18); }
+    .product-info { padding: 20px 22px 24px; }
+    .product-info small { color: var(--accent-2); font-weight: 600; font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; }
+    .product-info h3 { font-size: 1.35rem; margin: 6px 0; }
+    .product-info p { color: var(--muted); font-size: .92rem; }
+    .product.hide { display: none; }
+
+    /* Process */
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: s; border-top: 1px solid var(--line); }
+    .step { padding: 36px 28px 0 0; position: relative; }
+    .step::before { counter-increment: s; content: "0" counter(s); font: 700 1rem "Space Grotesk"; color: var(--accent); }
+    .step::after { content: ""; position: absolute; top: -5px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+    .step h3 { font-size: 1.4rem; margin: 14px 0 10px; }
+    .step p { color: var(--muted); }
+
+    /* CTA / contact */
+    .cta { padding: 0 0 110px; }
+    .cta-box { background: var(--accent); color: #111; border-radius: 28px; padding: clamp(36px, 6vw, 72px); display: grid; grid-template-columns: 1fr 1fr; gap: 48px; position: relative; overflow: hidden; }
+    .cta-box::after { content: ""; position: absolute; right: -60px; top: -60px; width: 260px; height: 260px; border: 40px solid rgba(0,0,0,.06); border-radius: 50%; }
+    .cta-box h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+    .cta-box p { margin: 18px 0 28px; color: #3a3205; font-size: 1.05rem; }
+    .cta-links { display: grid; gap: 12px; }
+    .cta-links a { display: flex; align-items: center; gap: 12px; font-weight: 600; }
+    .cta-links svg { width: 22px; height: 22px; fill: #111; }
+    .cta form { display: grid; gap: 14px; position: relative; z-index: 1; }
+    .cta input, .cta textarea, .cta select { width: 100%; background: rgba(255,255,255,.55); border: 1px solid rgba(0,0,0,.12); border-radius: 12px; padding: 14px 16px; font: inherit; color: #111; }
+    .cta input::placeholder, .cta textarea::placeholder { color: #5c5323; }
+    .cta textarea { min-height: 110px; resize: vertical; }
+    .cta .btn-dark { background: #111; color: #fff; justify-content: center; }
+    .cta .btn-dark:hover { background: #2a2a2a; }
+    .form-msg { display: none; font-weight: 600; }
+
+    footer { border-top: 1px solid var(--line); padding: 36px 0; color: var(--muted); font-size: .9rem; }
+    footer .container { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+    /* Apparition au défilement */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s, transform .8s; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 960px) {
+      .hero .container { grid-template-columns: 1fr; }
+      .stack { max-width: 420px; width: 100%; margin-inline: auto; }
+      .bento { grid-template-columns: repeat(2, 1fr); }
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
+      .cta-box { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px) {
+      nav { position: absolute; top: 80px; left: 16px; right: 16px; display: none; }
+      nav.open { display: block; }
+      nav ul { flex-direction: column; border-radius: 18px; background: var(--bg-2); }
+      .menu-toggle { display: block; }
+      .header-cta { display: none; }
+      .bento, .product-grid, .steps { grid-template-columns: 1fr; }
+      .tile.big, .tile.wide { grid-column: auto; grid-row: auto; }
+      section { padding: 80px 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="header">
+    <div class="container">
+      <a href="#" class="logo"><i></i>satina</a>
+      <nav id="nav">
+        <ul>
+          <li><a href="#apropos">À propos</a></li>
+          <li><a href="#produits">Produits</a></li>
+          <li><a href="#process">Comment ça marche</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="btn btn-accent header-cta">Commander</a>
+      <button class="menu-toggle" id="menuBtn" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg></button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div>
+        <span class="label">Import · Gros · Détail</span>
+        <h1>Du <em>conteneur</em><br>à votre <span class="outline">table.</span></h1>
+        <p>Satina importe des denrées alimentaires essentielles par conteneurs entiers et les revend aux commerçants comme aux particuliers, au meilleur prix.</p>
+        <div class="actions">
+          <a href="#produits" class="btn btn-accent">Découvrir nos produits <svg viewBox="0 0 24 24"><path d="M12 4 10.6 5.4 16.2 11H4v2h12.2l-5.6 5.6L12 20l8-8z"/></svg></a>
+          <a href="#contact" class="btn btn-ghost">Demander un prix</a>
+        </div>
+      </div>
+      <div class="stack" aria-hidden="true">
+        <div class="box b3" data-label="SATINA · 03"></div>
+        <div class="box b2" data-label="SATINA · 02"></div>
+        <div class="box b1" data-label="SATINA · 01"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marquee"></div>
+  </div>
+
+  <section id="apropos">
+    <div class="container">
+      <div class="head reveal">
+        <div>
+          <span class="label">À propos</span>
+          <h2>L'importation simplifiée, la qualité garantie.</h2>
+        </div>
+        <p>Nous achetons directement auprès de fournisseurs sélectionnés et gérons toute la chaîne : transport, dédouanement, stockage et vente.</p>
+      </div>
+      <div class="bento">
+        <div class="tile big reveal">
+          <svg viewBox="0 0 24 24"><path d="M2 8h20v10H2zM4 10v6h2v-6zm4 0v6h2v-6zm4 0v6h2v-6zm4 0v6h2v-6zM6 4h12l2 3H4z"/></svg>
+          <div>
+            <h3>Des conteneurs pleins, des rayons bien garnis.</h3>
+            <p>En important en grande quantité, nous réduisons les coûts et vous garantissons un stock disponible toute l'année.</p>
+          </div>
+        </div>
+        <div class="tile accent reveal">
+          <span class="num" data-count="250">0</span>
+          <p>conteneurs importés</p>
+        </div>
+        <div class="tile reveal">
+          <span class="num" data-count="500">0</span>
+          <p>clients réguliers</p>
+        </div>
+        <div class="tile wide reveal">
+          <h3>Gros, demi-gros & détail</h3>
+          <p>Du conteneur complet au simple sac : chacun achète selon ses besoins, commerçant ou famille.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products" id="produits">
+    <div class="container">
+      <div class="head reveal">
+        <div>
+          <span class="label">Catalogue</span>
+          <h2>Nos produits</h2>
+        </div>
+        <p>Une sélection de denrées de base. Catalogue indicatif — disponibilités selon arrivages.</p>
+      </div>
+      <div class="filters" id="filters">
+        <button class="active" data-filter="all">Tous</button>
+        <button data-filter="epicerie">Épicerie</button>
+        <button data-filter="frais">Produits frais</button>
+        <button data-filter="cereales">Céréales</button>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="container">
+      <div class="head reveal">
+        <div>
+          <span class="label">Comment ça marche</span>
+          <h2>Commander en 4 étapes</h2>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><h3>Contact</h3><p>Appelez-nous ou écrivez sur WhatsApp avec le produit et la quantité.</p></div>
+        <div class="step reveal"><h3>Devis</h3><p>Nous vous envoyons un prix clair, adapté au volume demandé.</p></div>
+        <div class="step reveal"><h3>Paiement</h3><p>Validez la commande par le moyen de paiement de votre choix.</p></div>
+        <div class="step reveal"><h3>Livraison</h3><p>Retrait au dépôt ou livraison directement chez vous.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container">
+      <div class="cta-box reveal">
+        <div>
+          <h2>Parlons de votre commande.</h2>
+          <p>Commerçant, restaurateur ou particulier : dites-nous ce dont vous avez besoin.</p>
+          <div class="cta-links">
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>WhatsApp : +XXX XX XX XX XX</a>
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>contact@satina.com</a>
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>Adresse du dépôt à compléter</a>
+          </div>
+        </div>
+        <form id="contactForm">
+          <input placeholder="Votre nom" required aria-label="Votre nom">
+          <input placeholder="Téléphone / WhatsApp" type="tel" required aria-label="Téléphone">
+          <select aria-label="Type de client"><option>Je suis commerçant / revendeur</option><option>Je suis restaurateur</option><option>Je suis particulier</option></select>
+          <textarea placeholder="Produits et quantités souhaités…" aria-label="Message"></textarea>
+          <button class="btn btn-dark" type="submit">Envoyer ma demande</button>
+          <p class="form-msg" id="formMsg">Merci ! Nous vous recontactons très vite (démo).</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <span>© <span id="year"></span> Satina — Import & Distribution</span>
+      <span>Maquette 2 · Moderne</span>
+    </div>
+  </footer>
+
+  <script>
+    const products = [
+      { name: "Vermicelle", cat: "epicerie", label: "Épicerie", desc: "Cartons de vermicelle, plusieurs marques.", color: "#f5c518" },
+      { name: "Oignons", cat: "frais", label: "Produits frais", desc: "Sacs de 25 kg et 50 kg, arrivages réguliers.", color: "#ff6b4a" },
+      { name: "Riz", cat: "cereales", label: "Céréales", desc: "Riz parfumé, riz brisé — sacs de 25 et 50 kg.", color: "#e9edf3" },
+      { name: "Sucre", cat: "epicerie", label: "Épicerie", desc: "Sucre en poudre et en morceaux.", color: "#9ad1f5" },
+      { name: "Farine", cat: "cereales", label: "Céréales", desc: "Farine de blé pour boulangers et ménages.", color: "#e8c9a0" },
+      { name: "Huile", cat: "epicerie", label: "Épicerie", desc: "Huile végétale en bidons de 5 à 20 L.", color: "#ffd56b" },
+      { name: "Pommes de terre", cat: "frais", label: "Produits frais", desc: "Sacs de pommes de terre selon saison.", color: "#c89b6d" },
+      { name: "Pâtes", cat: "epicerie", label: "Épicerie", desc: "Spaghetti, macaroni, coquillettes…", color: "#2ec4b6" },
+    ];
+    const grid = document.getElementById("productGrid");
+    grid.innerHTML = products.map(p => `
+      <article class="product" data-cat="${p.cat}">
+        <div class="product-visual" style="background:${p.color}"><span class="initial">${p.name[0]}</span></div>
+        <div class="product-info"><small>${p.label}</small><h3>${p.name}</h3><p>${p.desc}</p></div>
+      </article>`).join("");
+
+    // Filtres produits
+    document.getElementById("filters").addEventListener("click", e => {
+      const btn = e.target.closest("button"); if (!btn) return;
+      document.querySelectorAll("#filters button").forEach(b => b.classList.toggle("active", b === btn));
+      const f = btn.dataset.filter;
+      grid.querySelectorAll(".product").forEach(p => p.classList.toggle("hide", f !== "all" && p.dataset.cat !== f));
+    });
+
+    // Bandeau défilant (dupliqué pour une boucle continue)
+    const words = ["Vermicelle", "Oignons", "Riz", "Sucre", "Farine", "Huile", "Pâtes"];
+    const half = words.map(w => `<span>${w}</span>`).join("");
+    document.getElementById("marquee").innerHTML = half + half;
+
+    // En-tête au défilement
+    const header = document.getElementById("header");
+    addEventListener("scroll", () => header.classList.toggle("scrolled", scrollY > 20), { passive: true });
+
+    // Menu mobile
+    const nav = document.getElementById("nav");
+    document.getElementById("menuBtn").addEventListener("click", () => nav.classList.toggle("open"));
+    nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => nav.classList.remove("open")));
+
+    // Apparitions + compteurs
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add("visible");
+      e.target.querySelectorAll("[data-count]").forEach(el => {
+        const target = +el.dataset.count; let n = 0;
+        const t = setInterval(() => { n = Math.min(target, n + Math.ceil(target / 50)); el.textContent = n + "+"; if (n === target) clearInterval(t); }, 25);
+      });
+      io.unobserve(e.target);
+    }), { threshold: .15 });
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+    document.getElementById("contactForm").addEventListener("submit", e => {
+      e.preventDefault();
+      document.getElementById("formMsg").style.display = "block";
+      e.target.reset();
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

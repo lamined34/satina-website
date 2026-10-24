@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satina — Denrées importées</title>
+  <meta name="description" content="Satina importe et distribue des denrées alimentaires essentielles, en gros comme au détail.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f3ec;
+      --paper: #fffdf9;
+      --ink: #1f1d1a;
+      --muted: #77706a;
+      --line: #e3dbcf;
+      --terra: #b8542f;
+      --olive: #5b6b3a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "DM Sans", sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; font-size: 17px; }
+    h1, h2, h3 { font-family: "Fraunces", serif; font-weight: 400; line-height: 1.12; }
+    a { color: inherit; }
+    .container { width: min(1080px, 100% - 32px); margin-inline: auto; }
+    section { padding: 120px 0; border-top: 1px solid var(--line); }
+    .kicker { font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+    .link { text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; font-weight: 500; transition: color .2s; }
+    .link:hover { color: var(--terra); }
+
+    header { padding: 28px 0; }
+    header .container { display: flex; justify-content: space-between; align-items: baseline; }
+    .logo { font-family: "Fraunces", serif; font-size: 1.6rem; text-decoration: none; }
+    .logo span { color: var(--terra); }
+    nav { display: flex; gap: 36px; }
+    nav a { text-decoration: none; font-size: .95rem; color: var(--muted); transition: color .2s; }
+    nav a:hover { color: var(--ink); }
+
+    /* Hero */
+    .hero { padding: 100px 0 120px; border-top: 0; }
+    .hero h1 { font-size: clamp(2.6rem, 7vw, 5.4rem); max-width: 900px; letter-spacing: -.02em; }
+    .hero h1 i { color: var(--terra); }
+    .hero-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 64px; align-items: end; }
+    .hero-bottom p { color: var(--muted); max-width: 440px; font-size: 1.1rem; }
+    .hero-bottom .meta { display: flex; gap: 48px; justify-content: flex-end; }
+    .meta strong { display: block; font-family: "Fraunces", serif; font-size: 2.4rem; font-weight: 400; line-height: 1; }
+    .meta span { font-size: .85rem; color: var(--muted); }
+
+    /* Bandes de couleur — évocation des conteneurs */
+    .bands { display: grid; grid-template-columns: 3fr 2fr 1fr; gap: 12px; height: 220px; margin-top: 80px; }
+    .bands div { border-radius: 4px; }
+    .bands div:nth-child(1) { background: repeating-linear-gradient(90deg, var(--terra) 0 26px, #a54926 26px 30px); }
+    .bands div:nth-child(2) { background: repeating-linear-gradient(90deg, var(--olive) 0 26px, #4f5d32 26px 30px); }
+    .bands div:nth-child(3) { background: repeating-linear-gradient(90deg, #d7c3a3 0 26px, #c9b38f 26px 30px); }
+
+    /* Deux colonnes */
+    .split { display: grid; grid-template-columns: 1fr 2fr; gap: 64px; }
+    .split h2 { font-size: clamp(2rem, 4vw, 3rem); margin-top: 12px; }
+    .prose p { margin-bottom: 20px; color: #4a4540; font-size: 1.12rem; }
+    .prose p:first-child::first-letter { font-family: "Fraunces", serif; float: left; font-size: 4.2rem; line-height: .9; padding: 6px 10px 0 0; color: var(--terra); }
+
+    /* Liste produits */
+    .product-list { list-style: none; }
+    .product-list li { display: grid; grid-template-columns: 60px 1fr auto; gap: 24px; align-items: baseline; padding: 26px 0; border-bottom: 1px solid var(--line); transition: padding .3s, background .3s; cursor: default; }
+    .product-list li:first-child { border-top: 1px solid var(--line); }
+    .product-list li:hover { padding-left: 14px; background: var(--paper); }
+    .product-list .n { font-size: .85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .product-list h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+    .product-list p { color: var(--muted); font-size: .95rem; }
+    .product-list .fmt { font-size: .85rem; color: var(--olive); font-weight: 500; text-align: right; white-space: nowrap; }
+
+    /* Services */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 56px; }
+    .svc { background: var(--bg); padding: 40px 32px; }
+    .svc .kicker { color: var(--terra); }
+    .svc h3 { font-size: 1.6rem; margin: 18px 0 12px; }
+    .svc p { color: var(--muted); }
+
+    /* Citation */
+    .quote { text-align: center; background: var(--paper); }
+    .quote blockquote { font-family: "Fraunces", serif; font-size: clamp(1.6rem, 3.4vw, 2.6rem); max-width: 820px; margin: 0 auto; line-height: 1.3; }
+    .quote cite { display: block; margin-top: 28px; font-style: normal; color: var(--muted); font-size: .95rem; }
+
+    /* Contact */
+    .contact h2 { font-size: clamp(2.4rem, 6vw, 4.4rem); }
+    .contact h2 a { text-decoration: none; color: var(--terra); }
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 64px; }
+    .contact-grid div { border-top: 1px solid var(--ink); padding-top: 16px; }
+    .contact-grid p { margin-top: 8px; }
+    form { margin-top: 72px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; }
+    form .full { grid-column: 1 / -1; }
+    form label { font-size: .8rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+    form input, form textarea { width: 100%; border: 0; border-bottom: 1px solid var(--ink); background: transparent; padding: 10px 0; font: inherit; font-size: 1.1rem; color: var(--ink); }
+    form input:focus, form textarea:focus { outline: none; border-bottom-color: var(--terra); }
+    form textarea { min-height: 80px; resize: vertical; }
+    form button { justify-self: start; background: var(--ink); color: var(--bg); border: 0; padding: 16px 36px; font: inherit; font-weight: 500; cursor: pointer; border-radius: 99px; transition: background .2s; }
+    form button:hover { background: var(--terra); }
+    .form-msg { display: none; color: var(--olive); font-weight: 500; }
+
+    footer { padding: 40px 0; border-top: 1px solid var(--line); font-size: .88rem; color: var(--muted); }
+    footer .container { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+    .fade { opacity: 0; transform: translateY(16px); transition: opacity 1s ease, transform 1s ease; }
+    .fade.in { opacity: 1; transform: none; }
+
+    @media (max-width: 860px) {
+      nav { display: none; }
+      .hero-bottom, .split { grid-template-columns: 1fr; gap: 32px; }
+      .hero-bottom .meta { justify-content: flex-start; }
+      .services-grid, .contact-grid { grid-template-columns: 1fr; }
+      .bands { height: 140px; }
+      section { padding: 80px 0; }
+    }
+    @media (max-width: 560px) {
+      .product-list li { grid-template-columns: 36px 1fr; }
+      .product-list .fmt { grid-column: 2; text-align: left; }
+      form { grid-template-columns: 1fr; }
+      .meta strong { font-size: 1.9rem; }
+      .hero-bottom .meta { gap: 28px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .fade { opacity: 1; transform: none; transition: none; } }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a href="#" class="logo">Satina<span>.</span></a>
+      <nav>
+        <a href="#maison">La maison</a>
+        <a href="#produits">Produits</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <p class="kicker">Import & distribution alimentaire</p>
+      <h1>Les denrées essentielles, importées avec <i>soin</i>, vendues au juste prix.</h1>
+      <div class="hero-bottom">
+        <p>Vermicelle, oignons, riz, sucre, farine : nous faisons venir des conteneurs entiers et servons commerçants et particuliers.</p>
+        <div class="meta">
+          <div><strong>250+</strong><span>conteneurs</span></div>
+          <div><strong>500+</strong><span>clients</span></div>
+          <div><strong>10 ans</strong><span>d'expérience</span></div>
+        </div>
+      </div>
+      <div class="bands" aria-hidden="true"><div></div><div></div><div></div></div>
+    </div>
+  </section>
+
+  <section id="maison">
+    <div class="container split">
+      <div class="fade">
+        <p class="kicker">La maison</p>
+        <h2>Une affaire de confiance.</h2>
+      </div>
+      <div class="prose fade">
+        <p>Satina est née d'une idée simple : rendre les produits de base accessibles, en qualité comme en quantité. En achetant directement par conteneurs auprès de fournisseurs choisis, nous évitons les intermédiaires et proposons des prix justes.</p>
+        <p>Chaque arrivage est contrôlé, stocké dans de bonnes conditions, puis revendu en gros, en demi-gros ou au détail. Commerçants, restaurateurs et familles trouvent chez nous ce dont ils ont besoin, toute l'année.</p>
+        <a href="#contact" class="link">Nous rencontrer →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="produits">
+    <div class="container">
+      <div class="split" style="margin-bottom:48px">
+        <div class="fade">
+          <p class="kicker">Produits</p>
+          <h2>Ce que nous importons.</h2>
+        </div>
+        <p class="fade" style="color:var(--muted);align-self:end">Catalogue indicatif. Les produits et formats varient selon les arrivages — contactez-nous pour connaître les disponibilités du moment.</p>
+      </div>
+      <ul class="product-list" id="productList"></ul>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="fade">
+        <p class="kicker">Services</p>
+        <h2 style="font-size:clamp(2rem,4vw,3rem);margin-top:12px;max-width:640px">Du port à votre porte, une seule adresse.</h2>
+      </div>
+      <div class="services-grid">
+        <div class="svc fade"><span class="kicker">I.</span><h3>Importation</h3><p>Achat auprès des fournisseurs, transport maritime et dédouanement pris en charge.</p></div>
+        <div class="svc fade"><span class="kicker">II.</span><h3>Vente en gros</h3><p>Conteneurs complets, palettes ou lots pour revendeurs et professionnels.</p></div>
+        <div class="svc fade"><span class="kicker">III.</span><h3>Vente au détail</h3><p>Au sac ou au carton, directement au dépôt, pour les particuliers.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote">
+    <div class="container fade">
+      <blockquote>« Des produits réguliers, des prix honnêtes et un accueil toujours chaleureux. »</blockquote>
+      <cite>— Un client commerçant (témoignage fictif)</cite>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <p class="kicker">Contact</p>
+      <h2 class="fade">Une commande ?<br><a href="mailto:contact@satina.com">Écrivez-nous.</a></h2>
+      <div class="contact-grid fade">
+        <div><p class="kicker">Téléphone · WhatsApp</p><p>+XXX XX XX XX XX</p></div>
+        <div><p class="kicker">E-mail</p><p>contact@satina.com</p></div>
+        <div><p class="kicker">Dépôt</p><p>Adresse à compléter<br>Lun – Sam, 8h – 18h</p></div>
+      </div>
+      <form id="contactForm" class="fade">
+        <div><label for="nom">Nom</label><input id="nom" required></div>
+        <div><label for="tel">Téléphone</label><input id="tel" type="tel" required></div>
+        <div class="full"><label for="msg">Votre besoin</label><textarea id="msg" placeholder="Produits, quantités, lieu de livraison…"></textarea></div>
+        <button type="submit">Envoyer</button>
+        <p class="form-msg full" id="formMsg">Merci, nous revenons vers vous rapidement (démo).</p>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <span>© <span id="year"></span> Satina</span>
+      <span>Maquette 3 · Minimaliste</span>
+    </div>
+  </footer>
+
+  <script>
+    const products = [
+      ["Vermicelle", "Vermicelle de blé dur, plusieurs marques.", "Carton · Conteneur"],
+      ["Oignons", "Oignons frais, arrivages réguliers.", "Sac 25 / 50 kg"],
+      ["Riz", "Riz parfumé et riz brisé.", "Sac 25 / 50 kg"],
+      ["Sucre", "Sucre en poudre et en morceaux.", "Sac · Carton"],
+      ["Farine", "Farine de blé pour boulangerie et ménage.", "Sac 50 kg"],
+      ["Huile végétale", "Huile de cuisine en bidons.", "Bidon 5 – 20 L"],
+    ];
+    document.getElementById("productList").innerHTML = products.map(([name, desc, fmt], i) => `
+      <li class="fade"><span class="n">${String(i + 1).padStart(2, "0")}</span>
+        <div><h3>${name}</h3><p>${desc}</p></div>
+        <span class="fmt">${fmt}</span></li>`).join("");
+
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    }), { threshold: .1 });
+    document.querySelectorAll(".fade").forEach(el => io.observe(el));
+
+    document.getElementById("contactForm").addEventListener("submit", e => {
+      e.preventDefault();
+      document.getElementById("formMsg").style.display = "block";
+      e.target.reset();
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
