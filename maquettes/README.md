@@ -1,27 +1,42 @@
-# Maquettes : site Satina
+# Maquettes : site SATINA AGRO-SERVICE
 
-Trois propositions visuelles pour le site de présentation d'une entreprise d'import-distribution alimentaire (import par conteneurs, vente en gros, demi-gros et détail).
+Trois propositions visuelles construites à partir du cahier des charges de SATINA AGRO-SERVICE (importation, distribution et approvisionnement en produits agricoles et alimentaires, Conakry, Guinée).
 
 | Dossier | Style |
 |---|---|
-| `1-classique/` | Bleu marine et orange, corporate, rassurant |
-| `2-moderne/` | Sombre, typographie XXL, animations, filtre produits |
-| `3-minimaliste/` | Crème et terre cuite, éditorial, épuré |
+| `1-classique/` | Institutionnelle : vert agricole et or, sobre et rassurante |
+| `2-moderne/` | Moderne : fond sombre, accent safran, section oignons très visible |
+| `3-minimaliste/` | Minimaliste : crème, terre cuite et olive, style éditorial |
+
+Les trois maquettes partagent le même contenu et suivent l'arborescence du cahier des charges (§35) : Accueil, À propos (avec le mot du PDG, la vision et les valeurs), Produits, Importation d'oignons, Services, Importation & approvisionnement, Devenir fournisseur, Partenaires, Actualités, Demande de devis, Contact. Elles tiennent chacune sur une seule page ; dans le site final, chaque rubrique deviendra une vraie page.
+
+## Contenu partagé
+
+Tout le contenu (coordonnées, produits, services, valeurs, actualités, champs des formulaires) se trouve dans `commun/satina.js`. Une modification dans ce fichier s'applique aux trois maquettes. Par exemple, pour ajouter un produit, il suffit d'ajouter une ligne dans la liste `produits`.
 
 ## Voir les maquettes
 
-Ouvrir `maquettes/index.html` dans un navigateur. Aucune installation n'est nécessaire : HTML, CSS et JavaScript, sans dépendance (seules les polices viennent de Google Fonts).
+- En ligne : https://lamined34.github.io/satina-website/
+- En local : ouvrir `maquettes/index.html` dans un navigateur, sans rien installer.
 
-## Contenu provisoire
+## Ce qui est provisoire
 
-Tout le contenu est un exemple, à remplacer quand Gadiri l'aura fourni :
+- **Photos et logo** : remplacés par des emplacements « Photo à fournir ». Les couleurs seront alignées sur le logo officiel.
+- **Mot du PDG** : texte rédigé à titre d'exemple, à faire valider par M. Talibé Diallo.
+- **Formats des produits et critères pour les oignons** (variétés, calibres, origines) : indicatifs, à confirmer.
+- **Actualités, horaires, réseaux sociaux, logos des partenaires** : à fournir.
+- **Version anglaise** : le bouton EN est présent, mais la traduction viendra avec le site final.
+- **Formulaires** : ce sont des démonstrations, ils n'envoient rien pour l'instant.
 
-- nom, logo et slogan ;
-- liste des produits et formats ;
-- chiffres (conteneurs, clients, années) ;
-- téléphone, WhatsApp, e-mail, adresse, horaires ;
-- le formulaire de contact est une démo, il n'envoie rien.
+## Informations confidentielles
+
+Conformément aux §9 et §31 du cahier des charges, l'opération « haricots blancs d'Égypte » est présentée **sans** prix, montant total, conditions de paiement ni nom du fournisseur.
 
 ## Étape suivante
 
-Une fois la maquette choisie, on construira le site final avec [Astro](https://astro.build) en reprenant son HTML et son CSS.
+Une fois la maquette choisie, on construira le site final avec [Astro](https://astro.build) :
+
+- vraies pages et sections bilingues FR/EN ;
+- fiches produits et actualités faciles à ajouter ;
+- formulaires reliés à l'e-mail de l'entreprise, avec protection anti-spam ;
+- référencement Google optimisé.

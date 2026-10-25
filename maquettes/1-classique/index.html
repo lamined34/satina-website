@@ -3,167 +3,250 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Satina — Import & Distribution alimentaire</title>
-  <meta name="description" content="Satina importe par conteneurs et distribue des produits alimentaires de qualité : vermicelle, oignons, riz, sucre, farine et plus.">
+  <title>SATINA AGRO-SERVICE — Importation et distribution alimentaire à Conakry, Guinée</title>
+  <meta name="description" content="SATINA AGRO-SERVICE, importateur et distributeur de produits agricoles et alimentaires à Conakry (Guinée) : oignons, ail, tomates, pâtes, huile, haricots blancs. Devis et partenariats fournisseurs.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy: #0f2a4a;
-      --navy-light: #1d3f69;
-      --orange: #e8772e;
-      --orange-dark: #c95f1c;
+      --green: #1d4a2b;
+      --green-2: #2a6a3e;
+      --green-dark: #12301c;
+      --gold: #c99a2e;
+      --gold-dark: #a87d1e;
       --bg: #ffffff;
-      --bg-alt: #f3f6fa;
-      --text: #2b3440;
-      --muted: #66717f;
-      --border: #dfe5ec;
+      --bg-alt: #f5f3ec;
+      --text: #26302a;
+      --muted: #637067;
+      --border: #e2e0d6;
       --radius: 8px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body { font-family: "Open Sans", sans-serif; color: var(--text); background: var(--bg); line-height: 1.65; }
-    h1, h2, h3 { font-family: "Merriweather", serif; color: var(--navy); line-height: 1.25; }
+    h1, h2, h3 { font-family: "Merriweather", serif; color: var(--green); line-height: 1.25; }
     a { color: inherit; text-decoration: none; }
-    .container { width: min(1140px, 100% - 32px); margin-inline: auto; }
+    .ico { width: 24px; height: 24px; flex: none; }
+    .container { width: min(1180px, 100% - 32px); margin-inline: auto; }
     section { padding: 88px 0; }
-    .section-title { text-align: center; margin-bottom: 56px; }
-    .eyebrow { color: var(--orange); font-weight: 700; text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; }
-    .section-title h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); margin: 8px 0 12px; }
-    .section-title p { color: var(--muted); max-width: 620px; margin-inline: auto; }
-    .btn { display: inline-block; padding: 14px 28px; border-radius: var(--radius); font-weight: 700; transition: .2s; border: 2px solid transparent; cursor: pointer; font-size: 1rem; font-family: inherit; }
-    .btn-primary { background: var(--orange); color: #fff; }
-    .btn-primary:hover { background: var(--orange-dark); }
-    .btn-outline { border-color: #fff; color: #fff; }
-    .btn-outline:hover { background: #fff; color: var(--navy); }
+    .alt { background: var(--bg-alt); }
+    .eyebrow { color: var(--gold-dark); font-weight: 700; text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; }
+    .section-title { text-align: center; margin-bottom: 52px; }
+    .section-title h2, .h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 8px 0 12px; }
+    .section-title p { color: var(--muted); max-width: 660px; margin-inline: auto; }
+    .btn { white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 24px; border-radius: var(--radius); font-weight: 700; font-size: .92rem; letter-spacing: .03em; text-transform: uppercase; transition: .2s; border: 2px solid transparent; cursor: pointer; font-family: inherit; }
+    .btn-gold { background: var(--gold); color: #fff; }
+    .btn-gold:hover { background: var(--gold-dark); }
+    .btn-green { background: var(--green); color: #fff; }
+    .btn-green:hover { background: var(--green-2); }
+    .btn-line { border-color: rgba(255,255,255,.7); color: #fff; }
+    .btn-line:hover { background: #fff; color: var(--green); }
+    .photo { position: relative; border-radius: var(--radius); overflow: hidden; display: grid; place-items: center; text-align: center; color: rgba(255,255,255,.85); font-size: .8rem; font-weight: 600; background: repeating-linear-gradient(135deg, #2a6a3e 0 14px, #275f38 14px 28px); }
+    .photo .ico { width: 34px; height: 34px; display: block; margin: 0 auto 6px; }
 
     /* Barre supérieure */
-    .topbar { background: var(--navy); color: #c8d4e3; font-size: .85rem; padding: 8px 0; }
-    .topbar .container { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-    .topbar span { display: inline-flex; align-items: center; gap: 6px; margin-right: 20px; }
-    .topbar svg { width: 14px; height: 14px; fill: var(--orange); }
+    .topbar { background: var(--green-dark); color: #cbd8cf; font-size: .82rem; padding: 7px 0; }
+    .topbar .container { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+    .topbar a, .topbar span { display: inline-flex; align-items: center; gap: 6px; margin-right: 18px; }
+    .topbar .ico { width: 15px; height: 15px; color: var(--gold); }
+    .lang { display: flex; gap: 4px; }
+    .lang button { background: none; border: 1px solid transparent; color: #cbd8cf; font: inherit; font-weight: 700; padding: 1px 7px; border-radius: 4px; cursor: pointer; }
+    .lang button.on { border-color: var(--gold); color: #fff; }
 
     /* En-tête */
     header { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
-    header .container { display: flex; align-items: center; justify-content: space-between; height: 76px; }
-    .logo { display: flex; align-items: center; gap: 10px; font-family: "Merriweather", serif; font-weight: 900; font-size: 1.5rem; color: var(--navy); }
-    .logo-mark { width: 40px; height: 40px; border-radius: 6px; background: var(--navy); display: grid; place-items: center; }
-    .logo-mark svg { width: 24px; height: 24px; fill: var(--orange); }
-    .logo small { display: block; font-family: "Open Sans", sans-serif; font-size: .65rem; font-weight: 600; color: var(--muted); letter-spacing: .15em; text-transform: uppercase; }
-    nav ul { display: flex; gap: 32px; list-style: none; }
-    nav a { font-weight: 600; color: var(--navy); transition: color .2s; }
-    nav a:hover { color: var(--orange); }
-    .menu-toggle { display: none; background: none; border: 0; cursor: pointer; }
-    .menu-toggle svg { width: 28px; height: 28px; fill: var(--navy); }
+    header .container { display: flex; align-items: center; justify-content: space-between; height: 74px; gap: 16px; }
+    .logo { display: flex; align-items: center; gap: 10px; line-height: 1.1; }
+    .logo-mark { width: 42px; height: 42px; border-radius: 50%; background: var(--green); color: var(--gold); display: grid; place-items: center; }
+    .logo-mark .ico { width: 24px; height: 24px; }
+    .logo b { display: block; font-family: "Merriweather", serif; font-size: 1.25rem; color: var(--green); letter-spacing: .04em; }
+    .logo small { display: block; font-size: .64rem; font-weight: 700; color: var(--gold-dark); letter-spacing: .2em; white-space: nowrap; }
+    nav ul { display: flex; gap: 18px; list-style: none; }
+    nav a { font-weight: 600; font-size: .9rem; color: var(--green); white-space: nowrap; transition: color .2s; }
+    nav a:hover { color: var(--gold-dark); }
+    .menu-btn { display: none; background: none; border: 0; color: var(--green); cursor: pointer; }
+    .menu-btn svg { width: 30px; height: 30px; }
 
     /* Hero */
-    .hero { position: relative; color: #fff; padding: 120px 0 140px; background:
-      linear-gradient(110deg, rgba(15,42,74,.96) 0%, rgba(15,42,74,.85) 55%, rgba(15,42,74,.55) 100%),
-      repeating-linear-gradient(90deg, #355a85 0 22px, #2c4e77 22px 26px),
-      #2c4e77; overflow: hidden; }
-    .hero::after { content: ""; position: absolute; right: -80px; bottom: -60px; width: 520px; height: 260px; background: repeating-linear-gradient(90deg, var(--orange) 0 18px, var(--orange-dark) 18px 22px); border-radius: 4px; opacity: .25; transform: rotate(-8deg); }
-    .hero .container { position: relative; z-index: 1; }
-    .hero h1 { color: #fff; font-size: clamp(2.1rem, 5vw, 3.4rem); max-width: 700px; }
-    .hero h1 span { color: var(--orange); }
-    .hero p { font-size: 1.15rem; max-width: 560px; margin: 22px 0 36px; color: #d6e0ec; }
-    .hero .actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero { position: relative; color: #fff; padding: 110px 0 150px; overflow: hidden; background:
+      linear-gradient(105deg, rgba(18,48,28,.97) 0%, rgba(29,74,43,.9) 55%, rgba(29,74,43,.6) 100%),
+      repeating-linear-gradient(135deg, #2f7345 0 18px, #2a6a3e 18px 36px); }
+    .hero::after { content: "Photo à fournir : oignons, entrepôt ou port"; position: absolute; right: 24px; bottom: 90px; font-size: .75rem; color: rgba(255,255,255,.45); }
+    .hero .eyebrow { color: var(--gold); }
+    .hero h1 { color: #fff; font-size: clamp(2rem, 4.6vw, 3.3rem); max-width: 780px; margin: 14px 0 0; }
+    .hero h1 span { color: var(--gold); }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 24px 0 36px; color: #d9e4dc; font-weight: 600; }
+    .chips span::before { content: "•"; color: var(--gold); margin-right: 8px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-    /* Atouts */
-    .features { margin-top: -70px; position: relative; z-index: 2; padding: 0; }
-    .features .grid { display: grid; grid-template-columns: repeat(4, 1fr); background: #fff; border-radius: var(--radius); box-shadow: 0 18px 40px rgba(15,42,74,.12); overflow: hidden; }
-    .feature { padding: 32px 26px; border-right: 1px solid var(--border); }
-    .feature:last-child { border-right: 0; }
-    .feature svg { width: 38px; height: 38px; fill: var(--orange); margin-bottom: 14px; }
-    .feature h3 { font-size: 1.05rem; margin-bottom: 6px; }
-    .feature p { font-size: .92rem; color: var(--muted); }
+    /* Engagements */
+    .pillars { margin-top: -80px; position: relative; z-index: 2; padding: 0; }
+    .pillars .grid { display: grid; grid-template-columns: repeat(4, 1fr); background: #fff; border-radius: var(--radius); box-shadow: 0 18px 40px rgba(18,48,28,.13); overflow: hidden; border-top: 4px solid var(--gold); }
+    .pillar { padding: 28px 24px; border-right: 1px solid var(--border); }
+    .pillar:last-child { border-right: 0; }
+    .pillar .ico { color: var(--gold); width: 30px; height: 30px; margin-bottom: 10px; }
+    .pillar h3 { font-size: 1rem; margin-bottom: 4px; }
+    .pillar p { font-size: .88rem; color: var(--muted); }
 
     /* À propos */
-    .about .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-    .about-visual { position: relative; aspect-ratio: 4/3; border-radius: var(--radius); background: linear-gradient(160deg, #e9eef5, #d3dce8); overflow: hidden; }
-    .container-box { position: absolute; height: 34%; border-radius: 3px; }
-    .container-box.c1 { left: 8%; bottom: 10%; width: 56%; background: repeating-linear-gradient(90deg, var(--navy) 0 14px, var(--navy-light) 14px 17px); }
-    .container-box.c2 { left: 36%; bottom: 44%; width: 56%; background: repeating-linear-gradient(90deg, var(--orange) 0 14px, var(--orange-dark) 14px 17px); }
-    .container-box.c3 { right: 6%; bottom: 10%; width: 26%; background: repeating-linear-gradient(90deg, #8a9bb0 0 14px, #74869c 14px 17px); }
-    .about-badge { position: absolute; left: 20px; top: 20px; background: #fff; padding: 14px 18px; border-radius: var(--radius); box-shadow: 0 8px 20px rgba(0,0,0,.08); }
-    .about-badge strong { display: block; font-family: "Merriweather", serif; font-size: 1.8rem; color: var(--orange); line-height: 1; }
-    .about-badge span { font-size: .8rem; color: var(--muted); }
-    .about h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); margin: 8px 0 18px; }
-    .about p { color: var(--muted); margin-bottom: 16px; }
-    .checklist { list-style: none; margin: 24px 0 32px; display: grid; gap: 12px; }
-    .checklist li { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; }
-    .checklist svg { flex: none; width: 22px; height: 22px; fill: var(--orange); margin-top: 2px; }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .split .photo { aspect-ratio: 4/3; }
+    .lead p { color: var(--muted); margin-bottom: 14px; }
+    .checklist { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; margin-top: 22px; }
+    .checklist li { display: flex; gap: 8px; font-weight: 600; font-size: .92rem; }
+    .checklist .ico { color: var(--gold); width: 20px; height: 20px; margin-top: 2px; }
+
+    .pdg { margin-top: 72px; display: grid; grid-template-columns: 260px 1fr; gap: 44px; align-items: center; background: var(--bg-alt); border-radius: var(--radius); padding: 40px; }
+    .pdg .photo { aspect-ratio: 3/4; }
+    .pdg blockquote { font-family: "Merriweather", serif; font-size: clamp(1.05rem, 2vw, 1.3rem); color: var(--green); line-height: 1.6; }
+    .pdg blockquote::before { content: "“"; display: block; font-size: 4rem; line-height: 1; height: 2.2rem; margin-top: 12px; color: var(--gold); }
+    .pdg cite { display: block; margin-top: 18px; font-style: normal; font-weight: 700; }
+    .pdg cite span { display: block; font-weight: 400; color: var(--muted); font-size: .88rem; }
+
+    .vision { margin-top: 56px; display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+    .vision-card { background: var(--green); color: #e2ebe4; border-radius: var(--radius); padding: 32px; }
+    .vision-card h3 { color: var(--gold); margin-bottom: 12px; }
+    .values { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+    .value { border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 6px; padding: 14px 16px; }
+    .value h4 { color: var(--green); font-size: .98rem; }
+    .value p { color: var(--muted); font-size: .86rem; }
 
     /* Produits */
-    .products { background: var(--bg-alt); }
-    .products .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-    .product { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: transform .2s, box-shadow .2s; }
-    .product:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(15,42,74,.1); }
-    .product-img { height: 150px; display: grid; place-items: center; }
-    .product-img svg { width: 64px; height: 64px; fill: rgba(255,255,255,.95); }
-    .product-body { padding: 20px; }
-    .product h3 { font-size: 1.1rem; margin-bottom: 6px; }
-    .product p { font-size: .9rem; color: var(--muted); }
-    .tag { display: inline-block; margin-top: 12px; font-size: .75rem; font-weight: 700; color: var(--orange); background: #fdf0e7; padding: 4px 10px; border-radius: 99px; }
+    .products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .product { position: relative; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: transform .2s, box-shadow .2s; }
+    .product:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(18,48,28,.1); }
+    .product .photo { border-radius: 0; height: 140px; }
+    .product .photo .ico { width: 54px; height: 54px; color: #fff; }
+    .product-body { padding: 18px; }
+    .product h3 { font-size: 1.05rem; margin-bottom: 4px; }
+    .product p { font-size: .88rem; color: var(--muted); }
+    .tag { display: inline-block; margin-top: 10px; font-size: .74rem; font-weight: 700; color: var(--green-2); background: #e8f0ea; padding: 3px 10px; border-radius: 99px; }
+    .badge { position: absolute; top: 12px; left: 12px; background: var(--gold); color: #fff; font-size: .7rem; font-weight: 700; padding: 4px 10px; border-radius: 99px; text-transform: uppercase; letter-spacing: .06em; }
+    .product.vedette { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }
+
+    /* Oignons */
+    .onions { background: var(--green); color: #dbe6de; }
+    .onions h2 { color: #fff; }
+    .onions .section-title p { color: #c3d3c8; }
+    .onions .eyebrow { color: var(--gold); }
+    .criteria { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .criterion { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius); padding: 24px; }
+    .criterion h3 { color: var(--gold); font-size: 1rem; margin-bottom: 10px; }
+    .criterion ul { list-style: none; display: grid; gap: 6px; }
+    .criterion li::before { content: "—"; color: var(--gold); margin-right: 8px; }
+    .center { text-align: center; margin-top: 40px; }
+    .note { font-size: .8rem; opacity: .7; margin-top: 14px; }
 
     /* Services */
-    .services .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    .service { padding: 36px 30px; border: 1px solid var(--border); border-radius: var(--radius); border-top: 4px solid var(--orange); }
-    .service .num { font-family: "Merriweather", serif; font-size: 2.4rem; color: var(--border); font-weight: 900; line-height: 1; }
-    .service h3 { margin: 12px 0 10px; font-size: 1.25rem; }
-    .service p { color: var(--muted); }
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; }
+    .service { padding: 28px 22px; border: 1px solid var(--border); border-radius: var(--radius); background: #fff; }
+    .service .ico { width: 38px; height: 38px; color: var(--gold); margin-bottom: 14px; }
+    .service h3 { font-size: 1.08rem; margin-bottom: 8px; }
+    .service p { color: var(--muted); font-size: .9rem; }
 
-    /* Chiffres */
-    .stats { background: var(--navy); color: #fff; padding: 64px 0; }
-    .stats .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
-    .stat strong { display: block; font-family: "Merriweather", serif; font-size: 2.6rem; color: var(--orange); }
-    .stat span { color: #c8d4e3; }
+    /* Chaîne d'approvisionnement */
+    .intro-quote { max-width: 760px; margin: 0 auto 44px; text-align: center; font-family: "Merriweather", serif; color: var(--green); font-size: 1.1rem; }
+    .chain { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; counter-reset: c; }
+    .step { position: relative; text-align: center; padding: 0 10px; }
+    .step::before { counter-increment: c; content: counter(c); display: grid; place-items: center; width: 48px; height: 48px; margin: 0 auto 12px; border-radius: 50%; background: var(--green); color: var(--gold); font-weight: 700; font-family: "Merriweather", serif; position: relative; z-index: 1; }
+    .step::after { content: ""; position: absolute; top: 24px; left: 50%; width: 100%; height: 2px; background: repeating-linear-gradient(90deg, var(--gold) 0 6px, transparent 6px 12px); }
+    .step:last-child::after { display: none; }
+    .step h4 { color: var(--green); }
+    .step p { font-size: .84rem; color: var(--muted); }
+    .supply-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 64px; }
+    .card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; }
+    .card h3 { font-size: 1.15rem; margin: 6px 0 16px; }
+    .card dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 20px; font-size: .92rem; }
+    .card dt { color: var(--muted); }
+    .card dd { font-weight: 600; }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pills span { border: 1px solid var(--border); background: var(--bg-alt); padding: 6px 14px; border-radius: 99px; font-size: .86rem; font-weight: 600; color: var(--green); }
+
+    /* Formulaires */
+    .form-wrap { display: grid; grid-template-columns: 1fr 1.6fr; gap: 40px; align-items: start; }
+    .aside h3 { margin-bottom: 14px; }
+    .aside ul { list-style: none; display: grid; gap: 10px; margin-bottom: 26px; }
+    .aside li { display: flex; gap: 8px; color: var(--muted); }
+    .aside li .ico { color: var(--gold); width: 20px; height: 20px; margin-top: 2px; }
+    form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; background: #fff; padding: 30px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(18,48,28,.06); }
+    .champ.full { grid-column: 1 / -1; }
+    .champ label { display: block; font-weight: 600; font-size: .84rem; margin-bottom: 5px; color: var(--green); }
+    .champ input, .champ select, .champ textarea { width: 100%; padding: 11px 13px; border: 1px solid var(--border); border-radius: 6px; font: inherit; font-size: .95rem; background: #fff; }
+    .champ input[type=file] { padding: 8px; background: var(--bg-alt); }
+    .champ input:focus, .champ select:focus, .champ textarea:focus { outline: 2px solid var(--gold); border-color: transparent; }
+    .champ textarea { min-height: 110px; resize: vertical; }
+    .form-msg { margin-top: 10px; color: var(--green-2); font-weight: 600; }
+
+    /* Partenaires et actualités */
+    .logos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+    .logo-slot { aspect-ratio: 3/2; border: 2px dashed var(--border); border-radius: var(--radius); display: grid; place-items: center; color: var(--muted); font-size: .8rem; font-weight: 600; text-align: center; padding: 8px; }
+    .news { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .news article { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: #fff; }
+    .news .photo { height: 150px; border-radius: 0; }
+    .news-body { padding: 20px; }
+    .news-meta { font-size: .78rem; color: var(--gold-dark); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+    .news h3 { font-size: 1.05rem; margin: 6px 0 8px; }
+    .news p { font-size: .9rem; color: var(--muted); }
 
     /* Contact */
-    .contact .grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; }
-    .contact-info { background: var(--bg-alt); border-radius: var(--radius); padding: 36px; }
-    .contact-info h3 { margin-bottom: 20px; }
-    .info-item { display: flex; gap: 14px; margin-bottom: 22px; }
-    .info-item svg { flex: none; width: 22px; height: 22px; fill: var(--orange); margin-top: 3px; }
-    .info-item strong { display: block; color: var(--navy); }
-    .info-item span { color: var(--muted); font-size: .95rem; }
-    form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    form .full { grid-column: 1 / -1; }
-    label { display: block; font-weight: 600; font-size: .9rem; margin-bottom: 6px; color: var(--navy); }
-    input, select, textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius); font: inherit; background: #fff; }
-    input:focus, select:focus, textarea:focus { outline: 2px solid var(--orange); border-color: transparent; }
-    textarea { min-height: 130px; resize: vertical; }
-    .form-msg { grid-column: 1 / -1; color: #1f7a3d; font-weight: 600; display: none; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .info { display: grid; gap: 18px; background: var(--green); color: #dbe6de; padding: 32px; border-radius: var(--radius); }
+    .info-item { display: flex; gap: 14px; }
+    .info-item .ico { color: var(--gold); margin-top: 2px; }
+    .info-item strong { display: block; color: #fff; }
+    .map { width: 100%; height: 100%; min-height: 320px; border: 0; border-radius: var(--radius); background: var(--bg-alt); }
+    .contact-grid form { grid-column: 1 / -1; }
 
-    footer { background: #0a1e36; color: #9fb0c4; padding: 48px 0 24px; font-size: .9rem; }
-    footer .grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
-    footer .logo { color: #fff; margin-bottom: 12px; }
-    footer h4 { color: #fff; margin-bottom: 12px; font-size: 1rem; }
+    footer { background: var(--green-dark); color: #a9bcae; padding: 56px 0 24px; font-size: .88rem; }
+    footer .grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
+    footer .logo b { color: #fff; }
+    footer h4 { color: #fff; margin-bottom: 12px; font-size: .95rem; }
     footer ul { list-style: none; display: grid; gap: 6px; }
-    footer a:hover { color: var(--orange); }
-    .copyright { border-top: 1px solid #1d3352; padding-top: 20px; text-align: center; }
+    footer a:hover { color: var(--gold); }
+    .legal { display: grid; gap: 3px; margin-top: 16px; }
+    .slogan { font-family: "Merriweather", serif; color: var(--gold); margin-top: 12px; }
+    .copyright { border-top: 1px solid #22432d; padding-top: 18px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 
-    @media (max-width: 960px) {
-      .features .grid, .products .grid, .stats .grid { grid-template-columns: repeat(2, 1fr); }
-      .feature:nth-child(2) { border-right: 0; }
-      .feature:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
-      .about .grid, .contact .grid { grid-template-columns: 1fr; }
-      .services .grid { grid-template-columns: 1fr; }
+    .wa-float { position: fixed; right: 18px; bottom: 18px; z-index: 60; width: 58px; height: 58px; border-radius: 50%; background: #25d366; color: #fff; display: grid; place-items: center; box-shadow: 0 8px 24px rgba(0,0,0,.25); transition: transform .2s; }
+    .wa-float:hover { transform: scale(1.08); }
+    .wa-float svg { width: 32px; height: 32px; }
+
+    @media (max-width: 1240px) {
+      nav { position: absolute; top: 74px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); display: none; }
+      nav.open { display: block; }
+      nav ul { flex-direction: column; gap: 0; padding: 6px 16px 14px; }
+      .header-cta { margin-left: auto; }
+      nav li a { display: block; padding: 12px 0; border-bottom: 1px solid var(--border); }
+      .menu-btn { display: block; }
+    }
+    @media (max-width: 900px) {
+      .pillars .grid, .products { grid-template-columns: repeat(2, 1fr); }
+      .pillar:nth-child(2) { border-right: 0; }
+      .pillar:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+      .split, .vision, .supply-bottom, .form-wrap, .contact-grid { grid-template-columns: 1fr; }
+      .pdg { grid-template-columns: 1fr; padding: 28px; }
+      .pdg .photo { max-width: 220px; }
+      .criteria, .news { grid-template-columns: 1fr 1fr; }
+      .chain { grid-template-columns: repeat(3, 1fr); row-gap: 28px; }
+      .step:nth-child(3)::after { display: none; }
+      .logos { grid-template-columns: repeat(3, 1fr); }
       footer .grid { grid-template-columns: 1fr 1fr; }
     }
-    @media (max-width: 720px) {
-      .topbar .hide-sm { display: none; }
-      nav { position: absolute; top: 76px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); display: none; }
-      nav.open { display: block; }
-      nav ul { flex-direction: column; gap: 0; padding: 8px 16px 16px; }
-      nav li a { display: block; padding: 12px 0; border-bottom: 1px solid var(--border); }
-      .menu-toggle { display: block; }
-      .header-cta { display: none; }
-      .features .grid, .products .grid { grid-template-columns: 1fr; }
-      .feature { border-right: 0; border-bottom: 1px solid var(--border); }
-      form { grid-template-columns: 1fr; }
-      footer .grid { grid-template-columns: 1fr; }
+    @media (max-width: 640px) {
       section { padding: 64px 0; }
+      .topbar .hide-sm { display: none; }
+      .header-cta { display: none; }
+      .hero { padding: 72px 0 130px; }
+      .actions .btn { width: 100%; }
+      .pillars .grid, .products, .criteria, .news, .checklist { grid-template-columns: 1fr; }
+      .pillar { border-right: 0; border-bottom: 1px solid var(--border); }
+      .chain { grid-template-columns: 1fr 1fr; }
+      .step:nth-child(3)::after { display: block; }
+      .step:nth-child(even)::after { display: none; }
+      form { grid-template-columns: 1fr; padding: 20px; }
+      .logos { grid-template-columns: 1fr 1fr; }
+      footer .grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -172,167 +255,227 @@
   <div class="topbar">
     <div class="container">
       <div>
-        <span><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>+XXX XX XX XX XX</span>
-        <span class="hide-sm"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>contact@satina.com</span>
+        <a data-lien="tel" data-ico="tel"><span data-s="tel"></span></a>
+        <a class="hide-sm" data-lien="email" data-ico="email"><span data-s="email"></span></a>
+        <span class="hide-sm" data-ico="lieu">Matam, Conakry</span>
       </div>
-      <div><span class="hide-sm">Lun – Sam : 8h00 – 18h00</span></div>
+      <div class="lang"><button class="on" data-lang="fr">FR</button><button data-lang="en">EN</button></div>
     </div>
   </div>
 
   <header>
     <div class="container">
       <a href="#" class="logo">
-        <span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M2 8h20v10H2zM4 10v6h2v-6zm4 0v6h2v-6zm4 0v6h2v-6zm4 0v6h2v-6zM6 4h12l2 3H4z"/></svg></span>
-        <span>Satina<small>Import & Distribution</small></span>
+        <span class="logo-mark" data-ico="oignons"></span>
+        <span><b>SATINA</b><small>AGRO-SERVICE</small></span>
       </a>
-      <nav id="nav">
+      <nav data-menu>
         <ul>
+          <li><a href="#">Accueil</a></li>
           <li><a href="#apropos">À propos</a></li>
-          <li><a href="#produits">Produits</a></li>
-          <li><a href="#services">Services</a></li>
+          <li><a href="#produits">Nos produits</a></li>
+          <li><a href="#services">Nos services</a></li>
+          <li><a href="#importation">Importation</a></li>
+          <li><a href="#fournisseur">Devenir fournisseur</a></li>
+          <li><a href="#actualites">Actualités</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <a href="#contact" class="btn btn-primary header-cta">Demander un devis</a>
-      <button class="menu-toggle" aria-label="Ouvrir le menu" id="menuBtn"><svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg></button>
+      <a href="#devis" class="btn btn-gold header-cta">Demander un devis</a>
+      <button class="menu-btn" data-menu-btn aria-label="Menu"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg></button>
     </div>
   </header>
 
   <section class="hero">
     <div class="container">
-      <h1>Votre partenaire en <span>import alimentaire</span> par conteneur</h1>
-      <p>Nous importons et distribuons des denrées de qualité — vermicelle, oignons, riz, sucre, farine — pour les commerçants, les restaurants et les particuliers.</p>
+      <span class="eyebrow">SATINA AGRO-SERVICE · Conakry, Guinée</span>
+      <h1>Votre partenaire en <span>importation, distribution</span> et approvisionnement alimentaire.</h1>
+      <div class="chips"><span>Produits agricoles</span><span>Produits alimentaires</span><span>Importation</span><span>Distribution</span></div>
       <div class="actions">
-        <a href="#produits" class="btn btn-primary">Voir nos produits</a>
-        <a href="#contact" class="btn btn-outline">Nous contacter</a>
+        <a href="#produits" class="btn btn-gold">Nos produits</a>
+        <a href="#devis" class="btn btn-line">Demander un devis</a>
+        <a href="#fournisseur" class="btn btn-line">Devenir fournisseur</a>
       </div>
     </div>
   </section>
 
-  <section class="features">
+  <section class="pillars">
+    <div class="container grid" id="pillars"></div>
+  </section>
+
+  <section id="apropos">
     <div class="container">
-      <div class="grid">
-        <div class="feature">
-          <svg viewBox="0 0 24 24"><path d="M12 2 3 6v6c0 5 3.8 9.7 9 11 5.2-1.3 9-6 9-11V6l-9-4zm-1.5 14.5-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7z"/></svg>
-          <h3>Qualité contrôlée</h3>
-          <p>Chaque arrivage est vérifié avant la mise en vente.</p>
+      <div class="split">
+        <div class="photo"><div><span data-ico="photo"></span>Photo à fournir : locaux de SATINA AGRO-SERVICE, Matam</div></div>
+        <div class="lead">
+          <span class="eyebrow">À propos</span>
+          <h2 class="h2">Une entreprise guinéenne, tournée vers l'international</h2>
+          <div id="presentation"></div>
+          <ul class="checklist" id="engagements"></ul>
         </div>
-        <div class="feature">
-          <svg viewBox="0 0 24 24"><path d="M12 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22zm1 17.9V17h-2v1.9A8 8 0 0 1 5.1 13H7v-2H5.1A8 8 0 0 1 11 5.1V7h2V5.1a8 8 0 0 1 5.9 5.9H17v2h1.9a8 8 0 0 1-5.9 5.9zM13 8h-2v5l4 2.5 1-1.7-3-1.8z"/></svg>
-          <h3>Prix de gros</h3>
-          <p>Des tarifs compétitifs grâce à l'achat direct en volume.</p>
+      </div>
+
+      <div class="pdg">
+        <div class="photo"><div><span data-ico="personne"></span>Photo du PDG<br>à fournir</div></div>
+        <div>
+          <span class="eyebrow">Mot du PDG</span>
+          <blockquote id="motPdg"></blockquote>
+          <cite>M. Talibé Diallo<span>Président-Directeur Général · Texte provisoire, à valider</span></cite>
         </div>
-        <div class="feature">
-          <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3a2 2 0 0 0-2 2v11h2a3 3 0 0 0 6 0h6a3 3 0 0 0 6 0h2v-5l-3-4zM6 18.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm13.5-9 2 2.5H17V9.5h2.5zM18 18.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>
-          <h3>Livraison</h3>
-          <p>Livraison rapide auprès des commerçants et grossistes.</p>
-        </div>
-        <div class="feature">
-          <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>
-          <h3>Service client</h3>
-          <p>Une équipe disponible pour vous conseiller et vous servir.</p>
+      </div>
+
+      <div class="vision">
+        <div class="vision-card"><h3>Notre vision</h3><p data-s="vision"></p></div>
+        <div>
+          <h3 style="margin-bottom:14px">Nos valeurs</h3>
+          <div class="values" id="valeurs"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="about" id="apropos">
-    <div class="container grid">
-      <div class="about-visual" aria-hidden="true">
-        <div class="container-box c1"></div>
-        <div class="container-box c2"></div>
-        <div class="container-box c3"></div>
-        <div class="about-badge"><strong>10+</strong><span>ans d'expérience</span></div>
-      </div>
-      <div>
-        <span class="eyebrow">Qui sommes-nous</span>
-        <h2>Une entreprise de confiance au service de votre commerce</h2>
-        <p>Satina est spécialisée dans l'importation de produits alimentaires par conteneurs complets. Nous travaillons directement avec des fournisseurs sélectionnés pour garantir des produits frais, réguliers et au meilleur prix.</p>
-        <p>Nous revendons en gros, en demi-gros et au détail, afin de répondre aussi bien aux besoins des commerçants qu'à ceux des familles.</p>
-        <ul class="checklist">
-          <li><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-2 15-5-5 1.4-1.4 3.6 3.6 7.6-7.6L19 8l-9 9z"/></svg>Approvisionnement régulier toute l'année</li>
-          <li><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-2 15-5-5 1.4-1.4 3.6 3.6 7.6-7.6L19 8l-9 9z"/></svg>Vente au carton, au sac ou au conteneur</li>
-          <li><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-2 15-5-5 1.4-1.4 3.6 3.6 7.6-7.6L19 8l-9 9z"/></svg>Paiement simple et transparent</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary">En savoir plus</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="products" id="produits">
+  <section class="alt" id="produits">
     <div class="container">
       <div class="section-title">
         <span class="eyebrow">Nos produits</span>
-        <h2>Des denrées essentielles, en quantité</h2>
-        <p>Une sélection de produits alimentaires de base, disponibles en gros et au détail.</p>
+        <h2>Produits agricoles et alimentaires</h2>
+        <p>Une gamme appelée à s'élargir progressivement. Chaque produit aura sa propre fiche dans le site final.</p>
       </div>
-      <div class="grid" id="productGrid"></div>
+      <div class="products" id="produitsGrid"></div>
     </div>
   </section>
 
-  <section class="services" id="services">
+  <section class="onions" id="oignons">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Activité phare</span>
+        <h2>Importation d'oignons</h2>
+        <p>SATINA AGRO-SERVICE développe l'importation et la distribution d'oignons pour le marché guinéen et, à terme, ouest-africain. Nous recherchons des fournisseurs et exportateurs sérieux.</p>
+      </div>
+      <div class="criteria" id="criteres"></div>
+      <div class="center">
+        <a href="#fournisseur" class="btn btn-gold">Proposer des oignons</a>
+        <p class="note">Critères indicatifs, à confirmer par la direction.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
     <div class="container">
       <div class="section-title">
         <span class="eyebrow">Nos services</span>
-        <h2>De l'importation jusqu'à votre boutique</h2>
+        <h2>De l'importation à la distribution</h2>
       </div>
-      <div class="grid">
-        <div class="service">
-          <div class="num">01</div>
-          <h3>Importation par conteneur</h3>
-          <p>Nous gérons l'achat, le transport maritime et le dédouanement de vos marchandises.</p>
+      <div class="services" id="servicesGrid"></div>
+    </div>
+  </section>
+
+  <section class="alt" id="importation">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Importation & approvisionnement</span>
+        <h2>Comment nous travaillons</h2>
+      </div>
+      <p class="intro-quote">« SATINA AGRO-SERVICE développe des solutions d'approvisionnement en produits agricoles et alimentaires afin de répondre aux besoins du marché guinéen et de développer progressivement son réseau commercial en Afrique de l'Ouest. »</p>
+      <div class="chain" id="chaine"></div>
+      <div class="supply-bottom">
+        <div class="card">
+          <span class="eyebrow">Opération de référence</span>
+          <h3 id="operationTitre"></h3>
+          <dl id="operation"></dl>
         </div>
-        <div class="service">
-          <div class="num">02</div>
-          <h3>Vente en gros & demi-gros</h3>
-          <p>Des volumes adaptés aux commerçants, revendeurs, restaurants et collectivités.</p>
-        </div>
-        <div class="service">
-          <div class="num">03</div>
-          <h3>Vente aux particuliers</h3>
-          <p>Achetez au sac ou au carton directement dans notre dépôt, au prix juste.</p>
+        <div class="card">
+          <span class="eyebrow">Nous travaillons avec</span>
+          <h3>Un réseau de partenaires</h3>
+          <div class="pills" id="typesPartenaires"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="stats">
-    <div class="container grid">
-      <div class="stat"><strong data-count="250">0</strong><span>Conteneurs importés</span></div>
-      <div class="stat"><strong data-count="500">0</strong><span>Clients satisfaits</span></div>
-      <div class="stat"><strong data-count="12">0</strong><span>Produits disponibles</span></div>
-      <div class="stat"><strong data-count="10">0</strong><span>Années d'expérience</span></div>
+  <section id="fournisseur">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Devenir fournisseur</span>
+        <h2>Vous êtes producteur ou exportateur ? Devenez notre partenaire.</h2>
+        <p>SATINA AGRO-SERVICE, importateur basé à Conakry (Guinée), recherche des fournisseurs fiables pour un approvisionnement régulier.</p>
+      </div>
+      <div class="form-wrap">
+        <div class="aside">
+          <h3>Pourquoi nous rejoindre ?</h3>
+          <ul>
+            <li data-ico="check">Un marché guinéen en croissance, et l'Afrique de l'Ouest en perspective</li>
+            <li data-ico="check">Des commandes régulières, par conteneurs</li>
+            <li data-ico="check">Une relation commerciale sérieuse et durable</li>
+            <li data-ico="check">Réponse rapide de notre équipe</li>
+          </ul>
+          <h3>Produits recherchés</h3>
+          <div class="pills" id="produitsRecherches"></div>
+        </div>
+        <form data-form="fournisseur"></form>
+      </div>
     </div>
   </section>
 
-  <section class="contact" id="contact">
+  <section class="alt" id="partenaires">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Nos partenaires</span>
+        <h2>Ils travaillent avec nous</h2>
+        <p>Les logos de nos partenaires et fournisseurs seront affichés avec leur autorisation.</p>
+      </div>
+      <div class="logos">
+        <div class="logo-slot">Logo partenaire</div><div class="logo-slot">Logo partenaire</div><div class="logo-slot">Logo partenaire</div><div class="logo-slot">Logo partenaire</div><div class="logo-slot">Votre logo ici ?</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="actualites">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Actualités</span>
+        <h2>Arrivages, partenariats et annonces</h2>
+      </div>
+      <div class="news" id="news"></div>
+    </div>
+  </section>
+
+  <section class="alt" id="devis">
+    <div class="container">
+      <div class="section-title">
+        <span class="eyebrow">Demande de devis</span>
+        <h2>Obtenez un prix rapidement</h2>
+        <p>Indiquez le produit et la quantité souhaités : nous vous répondons par téléphone, WhatsApp ou e-mail.</p>
+      </div>
+      <div class="form-wrap">
+        <div class="aside">
+          <h3>Nous servons</h3>
+          <div class="pills" id="clients"></div>
+          <p style="margin-top:24px;color:var(--muted)">Vous préférez écrire directement ?</p>
+          <a data-lien="whatsapp" class="btn btn-green" style="margin-top:10px">Écrire sur WhatsApp</a>
+        </div>
+        <form data-form="devis"></form>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
     <div class="container">
       <div class="section-title">
         <span class="eyebrow">Contact</span>
-        <h2>Demandez un devis gratuit</h2>
-        <p>Indiquez le produit et la quantité souhaités, nous vous répondons rapidement.</p>
+        <h2>Venez nous rencontrer à Conakry</h2>
       </div>
-      <div class="grid">
-        <div class="contact-info">
-          <h3>Nos coordonnées</h3>
-          <div class="info-item"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg><div><strong>Adresse</strong><span>Adresse du dépôt à compléter</span></div></div>
-          <div class="info-item"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg><div><strong>Téléphone / WhatsApp</strong><span>+XXX XX XX XX XX</span></div></div>
-          <div class="info-item"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg><div><strong>E-mail</strong><span>contact@satina.com</span></div></div>
-          <div class="info-item"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm.5 5v5.3l4.5 2.7-.8 1.2L11 13V7z"/></svg><div><strong>Horaires</strong><span>Lundi – Samedi : 8h00 – 18h00</span></div></div>
+      <div class="contact-grid">
+        <div class="info">
+          <div class="info-item" data-ico="lieu"><div><strong>Adresse</strong><span data-s="adresse"></span></div></div>
+          <div class="info-item" data-ico="tel"><div><strong>Téléphone / WhatsApp</strong><a data-lien="tel" data-s="tel"></a></div></div>
+          <div class="info-item" data-ico="email"><div><strong>E-mail</strong><a data-lien="email" data-s="email"></a></div></div>
+          <div class="info-item" data-ico="personne"><div><strong>PDG</strong><span data-s="pdg"></span></div></div>
+          <div class="info-item" data-ico="horloge"><div><strong>Horaires</strong><span data-s="horaires"></span></div></div>
+          <div class="info-item" data-ico="globe"><div><strong>Réseaux sociaux</strong><span>Facebook · LinkedIn · TikTok (à fournir)</span></div></div>
         </div>
-        <form id="contactForm">
-          <div><label for="nom">Nom complet</label><input id="nom" required></div>
-          <div><label for="tel">Téléphone</label><input id="tel" type="tel" required></div>
-          <div><label for="produit">Produit</label>
-            <select id="produit"><option>Vermicelle</option><option>Oignons</option><option>Riz</option><option>Sucre</option><option>Farine</option><option>Autre</option></select>
-          </div>
-          <div><label for="qte">Quantité</label>
-            <select id="qte"><option>Au détail</option><option>Demi-gros</option><option>Gros</option><option>Conteneur complet</option></select>
-          </div>
-          <div class="full"><label for="msg">Message</label><textarea id="msg" placeholder="Précisez votre besoin…"></textarea></div>
-          <div class="full"><button class="btn btn-primary" type="submit">Envoyer la demande</button></div>
-          <p class="form-msg" id="formMsg">Merci ! Votre demande a bien été envoyée (démo).</p>
-        </form>
+        <iframe class="map" data-carte loading="lazy" title="Carte : SATINA AGRO-SERVICE, Matam, Conakry"></iframe>
+        <form data-form="contact"></form>
       </div>
     </div>
   </section>
@@ -341,66 +484,58 @@
     <div class="container">
       <div class="grid">
         <div>
-          <div class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M2 8h20v10H2zM4 10v6h2v-6zm4 0v6h2v-6zm4 0v6h2v-6zm4 0v6h2v-6zM6 4h12l2 3H4z"/></svg></span>Satina</div>
-          <p>Importation et distribution de produits alimentaires par conteneurs. Qualité, régularité et prix justes.</p>
+          <div class="logo"><span class="logo-mark" data-ico="oignons"></span><span><b>SATINA</b><small>AGRO-SERVICE</small></span></div>
+          <p class="slogan">« Cultivons l'avenir ensemble. »</p>
+          <div class="legal">
+            <strong data-s="raison" style="color:#fff"></strong>
+            <span>RCCM : <span data-s="rccm"></span></span>
+            <span>NIF : <span data-s="nif"></span></span>
+            <span data-s="ville"></span>
+          </div>
         </div>
         <div>
           <h4>Navigation</h4>
-          <ul><li><a href="#apropos">À propos</a></li><li><a href="#produits">Produits</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul>
+          <ul><li><a href="#apropos">À propos</a></li><li><a href="#produits">Nos produits</a></li><li><a href="#services">Nos services</a></li><li><a href="#importation">Importation & approvisionnement</a></li><li><a href="#fournisseur">Devenir fournisseur</a></li><li><a href="#partenaires">Nos partenaires</a></li><li><a href="#actualites">Actualités</a></li></ul>
         </div>
         <div>
           <h4>Contact</h4>
-          <ul><li>+XXX XX XX XX XX</li><li>contact@satina.com</li><li>Lun – Sam : 8h – 18h</li></ul>
+          <ul><li>PDG : <span data-s="pdg"></span></li><li>Tél. : <a data-lien="tel" data-s="tel"></a></li><li><a data-lien="email" data-s="email"></a></li><li>Madina École, Matam, Conakry</li></ul>
         </div>
       </div>
-      <div class="copyright">© <span id="year"></span> Satina — Tous droits réservés. Maquette 1 · Classique</div>
+      <div class="copyright"><span>© <span data-annee></span> SATINA AGRO-SERVICE · Importation • Distribution • Commerce • Approvisionnement</span><span>Maquette 1 · Institutionnelle</span></div>
     </div>
   </footer>
 
+  <a class="wa-float" data-lien="whatsapp" aria-label="Écrire sur WhatsApp" data-ico="whatsapp"></a>
+
+  <script src="../commun/satina.js"></script>
   <script>
-    // Produits (contenu provisoire)
-    const products = [
-      { name: "Vermicelle", desc: "Cartons de vermicelle de blé dur.", tag: "Carton / Conteneur", color: "#e3b04b", icon: "M4 4h16v2H4zm0 4h16v2H4zm0 4h16v2H4zm0 4h16v2H4z" },
-      { name: "Oignons", desc: "Oignons frais en sacs de 25 et 50 kg.", tag: "Sac / Conteneur", color: "#b5544c", icon: "M12 2c-1 2-1 3 0 4-4 1-7 4-7 8a7 7 0 0 0 14 0c0-4-3-7-7-8 1-1 1-2 0-4z" },
-      { name: "Riz", desc: "Riz parfumé et riz brisé en sacs.", tag: "Sac / Conteneur", color: "#8fa77a", icon: "M12 2C8 6 6 10 6 14a6 6 0 0 0 12 0c0-4-2-8-6-12z" },
-      { name: "Sucre", desc: "Sucre en poudre et en morceaux.", tag: "Sac / Carton", color: "#6c8db5", icon: "M4 8l8-4 8 4v8l-8 4-8-4zm8 2.3L6 7.5v7.3l6 3zm0 0 6-2.8" },
-      { name: "Farine", desc: "Farine de blé pour boulangerie et ménage.", tag: "Sac", color: "#c99a6b", icon: "M7 2h10l1 4v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6zm2 8v6h6v-6z" },
-      { name: "Huile végétale", desc: "Bidons de 5, 10 et 20 litres.", tag: "Bidon / Carton", color: "#d9a22b", icon: "M9 2h6v3h-1v2l4 4v9a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-9l4-4V5H9z" },
-      { name: "Pâtes", desc: "Spaghetti, macaroni et autres formats.", tag: "Carton", color: "#d07a3a", icon: "M5 3h2v18H5zm4 0h2v18H9zm4 0h2v18h-2zm4 0h2v18h-2z" },
-      { name: "Lait en poudre", desc: "Boîtes et sachets de lait en poudre.", tag: "Carton", color: "#7f8ea3", icon: "M8 2h8v3l2 3v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8l2-3zm0 9v6h8v-6z" },
-    ];
-    document.getElementById("productGrid").innerHTML = products.map(p => `
-      <article class="product">
-        <div class="product-img" style="background:${p.color}"><svg viewBox="0 0 24 24"><path d="${p.icon}"/></svg></div>
-        <div class="product-body"><h3>${p.name}</h3><p>${p.desc}</p><span class="tag">${p.tag}</span></div>
+    const S = SATINA, $ = id => document.getElementById(id);
+    $("pillars").innerHTML = [["check", "Qualité", "Des produits sélectionnés et contrôlés."], ["navire", "Importation", "Approvisionnement sur les marchés internationaux."], ["palette", "Disponibilité", "Un approvisionnement régulier du marché."], ["liens", "Partenariats", "Des relations durables, gagnant-gagnant."]]
+      .map(([i, t, d]) => `<div class="pillar">${S.ico(i)}<h3>${t}</h3><p>${d}</p></div>`).join("");
+    $("presentation").innerHTML = S.presentation.map(p => `<p>${p}</p>`).join("");
+    $("engagements").innerHTML = S.engagements.map(e => `<li>${S.ico("check")}${e}</li>`).join("");
+    $("motPdg").textContent = S.motPdg;
+    $("valeurs").innerHTML = S.valeurs.map(v => `<div class="value"><h4>${v.t}</h4><p>${v.d}</p></div>`).join("");
+    $("produitsGrid").innerHTML = S.produits.map(p => `
+      <article class="product${p.vedette ? " vedette" : ""}">
+        ${p.vedette ? '<span class="badge">Activité phare</span>' : ""}
+        <div class="photo">${S.ico(p.id)}</div>
+        <div class="product-body"><h3>${p.nom}</h3><p>${p.desc}</p><span class="tag">${p.format}</span></div>
       </article>`).join("");
-
-    // Menu mobile
-    const nav = document.getElementById("nav");
-    document.getElementById("menuBtn").addEventListener("click", () => nav.classList.toggle("open"));
-    nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => nav.classList.remove("open")));
-
-    // Compteurs animés
-    const counters = document.querySelectorAll("[data-count]");
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const el = e.target, target = +el.dataset.count;
-        let n = 0; const step = Math.max(1, Math.ceil(target / 60));
-        const t = setInterval(() => { n = Math.min(target, n + step); el.textContent = n + "+"; if (n === target) clearInterval(t); }, 25);
-        io.unobserve(el);
-      });
-    }, { threshold: .5 });
-    counters.forEach(c => io.observe(c));
-
-    // Formulaire (démo)
-    document.getElementById("contactForm").addEventListener("submit", e => {
-      e.preventDefault();
-      document.getElementById("formMsg").style.display = "block";
-      e.target.reset();
-    });
-
-    document.getElementById("year").textContent = new Date().getFullYear();
+    $("criteres").innerHTML = S.oignons.map(c => `<div class="criterion"><h3>${c.t}</h3><ul>${c.items.map(i => `<li>${i}</li>`).join("")}</ul></div>`).join("");
+    $("servicesGrid").innerHTML = S.services.map(s => `<div class="service">${S.ico(s.i)}<h3>${s.t}</h3><p>${s.d}</p></div>`).join("");
+    $("chaine").innerHTML = S.chaine.map(c => `<div class="step"><h4>${c.t}</h4><p>${c.d}</p></div>`).join("");
+    $("operationTitre").textContent = S.operation.t;
+    $("operation").innerHTML = S.operation.details.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
+    $("typesPartenaires").innerHTML = S.typesPartenaires.map(t => `<span>${t}</span>`).join("");
+    $("produitsRecherches").innerHTML = S.produits.map(p => `<span>${p.nom}</span>`).join("");
+    $("clients").innerHTML = S.clients.map(c => `<span>${c}</span>`).join("");
+    $("news").innerHTML = S.actualites.map(a => `
+      <article><div class="photo">${S.ico("photo")}</div>
+        <div class="news-body"><span class="news-meta">${a.cat} · ${a.date}</span><h3>${a.t}</h3><p>${a.d}</p></div></article>`).join("");
+    document.querySelectorAll("form[data-form]").forEach(f => S.formulaire(f, f.dataset.form === "contact" ? "btn btn-green" : "btn btn-gold"));
+    S.init();
   </script>
 </body>
 </html>

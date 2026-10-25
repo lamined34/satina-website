@@ -3,121 +3,201 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Satina — Denrées importées</title>
-  <meta name="description" content="Satina importe et distribue des denrées alimentaires essentielles, en gros comme au détail.">
+  <title>SATINA AGRO-SERVICE — Importation et distribution de produits agricoles, Conakry</title>
+  <meta name="description" content="SATINA AGRO-SERVICE : importateur et distributeur de produits agricoles et alimentaires à Conakry, Guinée. Oignons, ail, tomates, pâtes, huile, cubes, haricots blancs.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f7f3ec;
-      --paper: #fffdf9;
+      --bg: #f6f1e7;
+      --paper: #fffcf6;
       --ink: #1f1d1a;
-      --muted: #77706a;
-      --line: #e3dbcf;
-      --terra: #b8542f;
-      --olive: #5b6b3a;
+      --muted: #756d63;
+      --line: #e2d8c8;
+      --terra: #b04e2a;
+      --olive: #556b2f;
+      --sand: #d9c4a0;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
     body { font-family: "DM Sans", sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; font-size: 17px; }
     h1, h2, h3 { font-family: "Fraunces", serif; font-weight: 400; line-height: 1.12; }
     a { color: inherit; }
-    .container { width: min(1080px, 100% - 32px); margin-inline: auto; }
-    section { padding: 120px 0; border-top: 1px solid var(--line); }
-    .kicker { font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+    .ico { width: 22px; height: 22px; flex: none; }
+    .container { width: min(1100px, 100% - 32px); margin-inline: auto; }
+    section { padding: 112px 0; border-top: 1px solid var(--line); }
+    .kicker { font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+    .h2 { font-size: clamp(2rem, 4.2vw, 3.1rem); margin-top: 10px; }
     .link { text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; font-weight: 500; transition: color .2s; }
     .link:hover { color: var(--terra); }
+    .btn { display: inline-block; text-decoration: none; background: var(--ink); color: var(--bg); padding: 15px 30px; border-radius: 99px; font: inherit; font-weight: 500; font-size: .95rem; border: 1px solid var(--ink); cursor: pointer; transition: .2s; }
+    .btn:hover { background: var(--terra); border-color: var(--terra); }
+    .btn.ghost { background: transparent; color: var(--ink); }
+    .btn.ghost:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .photo { background: var(--sand); background-image: repeating-linear-gradient(90deg, rgba(0,0,0,.04) 0 24px, transparent 24px 28px); display: grid; place-items: center; text-align: center; color: #6e5c3e; font-size: .8rem; border-radius: 4px; }
+    .photo .ico { display: block; margin: 0 auto 6px; width: 30px; height: 30px; }
+    .split { display: grid; grid-template-columns: 1fr 2fr; gap: 64px; }
 
-    header { padding: 28px 0; }
-    header .container { display: flex; justify-content: space-between; align-items: baseline; }
-    .logo { font-family: "Fraunces", serif; font-size: 1.6rem; text-decoration: none; }
+    header { position: sticky; top: 0; z-index: 50; background: rgba(246,241,231,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+    header .container { display: flex; justify-content: space-between; align-items: center; height: 68px; gap: 20px; }
+    .logo { font-family: "Fraunces", serif; font-size: 1.35rem; text-decoration: none; white-space: nowrap; }
     .logo span { color: var(--terra); }
-    nav { display: flex; gap: 36px; }
-    nav a { text-decoration: none; font-size: .95rem; color: var(--muted); transition: color .2s; }
+    nav { display: flex; gap: 22px; }
+    nav a { text-decoration: none; font-size: .88rem; color: var(--muted); transition: color .2s; white-space: nowrap; }
     nav a:hover { color: var(--ink); }
+    .tools { display: flex; align-items: center; gap: 14px; font-size: .85rem; }
+    .lang button { background: none; border: 0; font: inherit; color: var(--muted); cursor: pointer; padding: 2px 3px; }
+    .lang button.on { color: var(--ink); font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+    .tools .btn { padding: 9px 18px; font-size: .85rem; }
+    .menu-btn { display: none; background: none; border: 0; cursor: pointer; color: var(--ink); }
+    .menu-btn svg { width: 28px; height: 28px; }
 
     /* Hero */
-    .hero { padding: 100px 0 120px; border-top: 0; }
-    .hero h1 { font-size: clamp(2.6rem, 7vw, 5.4rem); max-width: 900px; letter-spacing: -.02em; }
+    .hero { padding: 96px 0 0; border-top: 0; }
+    .hero h1 { font-size: clamp(2.4rem, 6.2vw, 5rem); max-width: 960px; letter-spacing: -.02em; margin-top: 18px; }
     .hero h1 i { color: var(--terra); }
-    .hero-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 64px; align-items: end; }
-    .hero-bottom p { color: var(--muted); max-width: 440px; font-size: 1.1rem; }
-    .hero-bottom .meta { display: flex; gap: 48px; justify-content: flex-end; }
-    .meta strong { display: block; font-family: "Fraunces", serif; font-size: 2.4rem; font-weight: 400; line-height: 1; }
-    .meta span { font-size: .85rem; color: var(--muted); }
+    .hero-sub { margin-top: 26px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 18px; }
+    .hero-sub span:not(:last-child)::after { content: "•"; margin-left: 18px; color: var(--terra); }
+    .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+    .bands { display: grid; grid-template-columns: 3fr 2fr 1fr; gap: 10px; height: 240px; margin-top: 80px; }
+    .bands .photo:nth-child(1) { background-color: var(--terra); color: #f3d9cc; }
+    .bands .photo:nth-child(2) { background-color: var(--olive); color: #dfe6cf; }
 
-    /* Bandes de couleur — évocation des conteneurs */
-    .bands { display: grid; grid-template-columns: 3fr 2fr 1fr; gap: 12px; height: 220px; margin-top: 80px; }
-    .bands div { border-radius: 4px; }
-    .bands div:nth-child(1) { background: repeating-linear-gradient(90deg, var(--terra) 0 26px, #a54926 26px 30px); }
-    .bands div:nth-child(2) { background: repeating-linear-gradient(90deg, var(--olive) 0 26px, #4f5d32 26px 30px); }
-    .bands div:nth-child(3) { background: repeating-linear-gradient(90deg, #d7c3a3 0 26px, #c9b38f 26px 30px); }
+    /* À propos */
+    .prose p { margin-bottom: 18px; color: #4a4540; font-size: 1.1rem; }
+    .prose p:first-child::first-letter { font-family: "Fraunces", serif; float: left; font-size: 4rem; line-height: .9; padding: 6px 10px 0 0; color: var(--terra); }
+    .engagements { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .engagements span { border: 1px solid var(--line); border-radius: 99px; padding: 4px 14px; font-size: .88rem; background: var(--paper); }
+    .pdg { display: grid; grid-template-columns: 1fr 2fr; gap: 64px; margin-top: 96px; align-items: center; }
+    .pdg .photo { aspect-ratio: 4/5; }
+    .pdg blockquote { font-family: "Fraunces", serif; font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.35; margin: 16px 0 22px; }
+    .pdg cite { font-style: normal; }
+    .pdg cite small { display: block; color: var(--muted); }
+    .values { margin-top: 96px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .values > div { background: var(--bg); padding: 26px 22px; }
+    .values .vision { grid-column: span 1; background: var(--olive); color: #eef1e4; }
+    .values h3 { font-size: 1.3rem; margin-bottom: 6px; }
+    .values p { font-size: .9rem; color: var(--muted); }
+    .values .vision p { color: #dfe6cf; }
 
-    /* Deux colonnes */
-    .split { display: grid; grid-template-columns: 1fr 2fr; gap: 64px; }
-    .split h2 { font-size: clamp(2rem, 4vw, 3rem); margin-top: 12px; }
-    .prose p { margin-bottom: 20px; color: #4a4540; font-size: 1.12rem; }
-    .prose p:first-child::first-letter { font-family: "Fraunces", serif; float: left; font-size: 4.2rem; line-height: .9; padding: 6px 10px 0 0; color: var(--terra); }
-
-    /* Liste produits */
-    .product-list { list-style: none; }
-    .product-list li { display: grid; grid-template-columns: 60px 1fr auto; gap: 24px; align-items: baseline; padding: 26px 0; border-bottom: 1px solid var(--line); transition: padding .3s, background .3s; cursor: default; }
+    /* Produits */
+    .product-list { list-style: none; margin-top: 48px; }
+    .product-list li { display: grid; grid-template-columns: 50px 40px 1fr auto; gap: 20px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--line); transition: padding .3s, background .3s; }
     .product-list li:first-child { border-top: 1px solid var(--line); }
-    .product-list li:hover { padding-left: 14px; background: var(--paper); }
-    .product-list .n { font-size: .85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
-    .product-list h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
-    .product-list p { color: var(--muted); font-size: .95rem; }
-    .product-list .fmt { font-size: .85rem; color: var(--olive); font-weight: 500; text-align: right; white-space: nowrap; }
+    .product-list li:hover { padding-left: 12px; background: var(--paper); }
+    .product-list .n { font-size: .82rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .product-list .ico { width: 34px; height: 34px; color: var(--terra); }
+    .product-list h3 { font-size: clamp(1.4rem, 2.8vw, 2rem); }
+    .product-list p { color: var(--muted); font-size: .94rem; }
+    .product-list .fmt { font-size: .84rem; color: var(--olive); font-weight: 500; text-align: right; white-space: nowrap; }
+    .product-list .phare { font-size: .7rem; color: var(--terra); letter-spacing: .14em; text-transform: uppercase; margin-left: 10px; font-family: "DM Sans"; vertical-align: middle; }
+
+    /* Oignons */
+    .onion { background: var(--paper); }
+    .onion-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px 40px; margin-top: 56px; }
+    .onion-grid h3 { font-size: 1.25rem; border-top: 1px solid var(--ink); padding-top: 14px; margin-bottom: 10px; }
+    .onion-grid ul { list-style: none; color: var(--muted); }
+    .onion .cta { margin-top: 56px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+    .onion .cta small { color: var(--muted); }
 
     /* Services */
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 56px; }
-    .svc { background: var(--bg); padding: 40px 32px; }
-    .svc .kicker { color: var(--terra); }
-    .svc h3 { font-size: 1.6rem; margin: 18px 0 12px; }
-    .svc p { color: var(--muted); }
+    .services { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 56px; }
+    .svc { background: var(--bg); padding: 32px 22px; }
+    .svc .ico { color: var(--terra); width: 30px; height: 30px; }
+    .svc h3 { font-size: 1.3rem; margin: 16px 0 8px; }
+    .svc p { color: var(--muted); font-size: .9rem; }
 
-    /* Citation */
-    .quote { text-align: center; background: var(--paper); }
-    .quote blockquote { font-family: "Fraunces", serif; font-size: clamp(1.6rem, 3.4vw, 2.6rem); max-width: 820px; margin: 0 auto; line-height: 1.3; }
-    .quote cite { display: block; margin-top: 28px; font-style: normal; color: var(--muted); font-size: .95rem; }
+    /* Chaîne */
+    .lead-quote { font-family: "Fraunces", serif; font-size: clamp(1.3rem, 2.6vw, 1.9rem); line-height: 1.4; max-width: 880px; margin: 18px 0 64px; }
+    .chain { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+    .chain span { font-family: "Fraunces", serif; font-size: clamp(1.1rem, 2.2vw, 1.5rem); }
+    .chain i { color: var(--terra); font-style: normal; }
+    .chain-notes { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 14px; color: var(--muted); font-size: .82rem; }
+    .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 80px; }
+    .duo h3 { font-size: 1.5rem; margin: 10px 0 18px; }
+    .duo dl { display: grid; grid-template-columns: auto 1fr; gap: 10px 24px; }
+    .duo dt { color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tags span { border: 1px solid var(--line); border-radius: 99px; padding: 4px 14px; font-size: .88rem; background: var(--paper); }
+
+    /* Formulaires */
+    .form-split { display: grid; grid-template-columns: 1fr 1.5fr; gap: 64px; margin-top: 56px; }
+    .form-split aside p { color: var(--muted); margin-bottom: 18px; }
+    form { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 32px; }
+    .champ.full { grid-column: 1 / -1; }
+    .champ label { font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+    .champ input, .champ select, .champ textarea { width: 100%; border: 0; border-bottom: 1px solid var(--ink); background: transparent; padding: 8px 0; font: inherit; font-size: 1.02rem; color: var(--ink); border-radius: 0; }
+    .champ input[type=file] { font-size: .85rem; }
+    .champ input:focus, .champ select:focus, .champ textarea:focus { outline: none; border-bottom-color: var(--terra); }
+    .champ textarea { min-height: 80px; resize: vertical; }
+    .form-msg { margin-top: 12px; color: var(--olive); font-weight: 500; }
+
+    /* Partenaires & actualités */
+    .logos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 48px; }
+    .logos div { background: var(--bg); aspect-ratio: 3/2; display: grid; place-items: center; color: var(--muted); font-size: .8rem; }
+    .news { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 56px; }
+    .news .photo { aspect-ratio: 4/3; margin-bottom: 18px; }
+    .news small { color: var(--terra); letter-spacing: .1em; text-transform: uppercase; font-size: .72rem; }
+    .news h3 { font-size: 1.35rem; margin: 6px 0 8px; }
+    .news p { color: var(--muted); font-size: .94rem; }
 
     /* Contact */
     .contact h2 { font-size: clamp(2.4rem, 6vw, 4.4rem); }
     .contact h2 a { text-decoration: none; color: var(--terra); }
-    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 64px; }
-    .contact-grid div { border-top: 1px solid var(--ink); padding-top: 16px; }
-    .contact-grid p { margin-top: 8px; }
-    form { margin-top: 72px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; }
-    form .full { grid-column: 1 / -1; }
-    form label { font-size: .8rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
-    form input, form textarea { width: 100%; border: 0; border-bottom: 1px solid var(--ink); background: transparent; padding: 10px 0; font: inherit; font-size: 1.1rem; color: var(--ink); }
-    form input:focus, form textarea:focus { outline: none; border-bottom-color: var(--terra); }
-    form textarea { min-height: 80px; resize: vertical; }
-    form button { justify-self: start; background: var(--ink); color: var(--bg); border: 0; padding: 16px 36px; font: inherit; font-weight: 500; cursor: pointer; border-radius: 99px; transition: background .2s; }
-    form button:hover { background: var(--terra); }
-    .form-msg { display: none; color: var(--olive); font-weight: 500; }
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 56px; }
+    .contact-grid div { border-top: 1px solid var(--ink); padding-top: 14px; }
+    .contact-grid p { margin-top: 6px; }
+    .map { width: 100%; height: 380px; border: 0; margin-top: 56px; filter: sepia(.35) saturate(.8); }
 
-    footer { padding: 40px 0; border-top: 1px solid var(--line); font-size: .88rem; color: var(--muted); }
-    footer .container { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    footer { padding: 56px 0 32px; border-top: 1px solid var(--line); font-size: .88rem; color: var(--muted); }
+    footer .grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    footer .slogan { font-family: "Fraunces", serif; font-size: 1.6rem; color: var(--ink); margin: 6px 0 14px; }
+    footer h4 { color: var(--ink); font-weight: 500; margin-bottom: 10px; }
+    footer ul { list-style: none; display: grid; gap: 4px; }
+    footer a { text-decoration: none; }
+    footer a:hover { color: var(--terra); }
+    .bottom { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 22px; }
 
-    .fade { opacity: 0; transform: translateY(16px); transition: opacity 1s ease, transform 1s ease; }
+    .wa-float { position: fixed; right: 18px; bottom: 18px; z-index: 60; width: 56px; height: 56px; border-radius: 50%; background: var(--olive); color: #fff; display: grid; place-items: center; box-shadow: 0 8px 22px rgba(0,0,0,.2); transition: background .2s; }
+    .wa-float:hover { background: #25d366; }
+    .wa-float svg { width: 28px; height: 28px; }
+
+    .fade { opacity: 0; transform: translateY(14px); transition: opacity 1s ease, transform 1s ease; }
     .fade.in { opacity: 1; transform: none; }
 
+    @media (max-width: 1080px) {
+      nav { position: absolute; top: 68px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--bg); border-bottom: 1px solid var(--line); padding: 4px 16px 14px; display: none; }
+      nav.open { display: flex; }
+      nav a { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 1rem; color: var(--ink); }
+      .menu-btn { display: block; }
+    }
     @media (max-width: 860px) {
-      nav { display: none; }
-      .hero-bottom, .split { grid-template-columns: 1fr; gap: 32px; }
-      .hero-bottom .meta { justify-content: flex-start; }
-      .services-grid, .contact-grid { grid-template-columns: 1fr; }
-      .bands { height: 140px; }
       section { padding: 80px 0; }
+      .split, .pdg, .duo, .form-split { grid-template-columns: 1fr; gap: 32px; }
+      .pdg .photo { max-width: 260px; }
+      .values { grid-template-columns: 1fr 1fr; }
+      .onion-grid, .news { grid-template-columns: 1fr 1fr; }
+      .services { grid-template-columns: 1fr 1fr; }
+      .chain-notes { display: none; }
+      .logos { grid-template-columns: repeat(3, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; }
+      footer .grid { grid-template-columns: 1fr 1fr; }
+      .bands { height: 150px; margin-top: 56px; }
     }
     @media (max-width: 560px) {
-      .product-list li { grid-template-columns: 36px 1fr; }
+      body { font-size: 16px; }
+      .tools .btn, .tools .lang { display: none; }
+      .hero .actions .btn { width: 100%; text-align: center; }
+      .product-list li { grid-template-columns: 34px 1fr; gap: 6px 14px; }
+      .product-list .n { display: none; }
       .product-list .fmt { grid-column: 2; text-align: left; }
+      .values, .onion-grid, .news, .services { grid-template-columns: 1fr; }
+      .logos { grid-template-columns: 1fr 1fr; }
       form { grid-template-columns: 1fr; }
-      .meta strong { font-size: 1.9rem; }
-      .hero-bottom .meta { gap: 28px; }
+      footer .grid { grid-template-columns: 1fr; }
+      .bands { grid-template-columns: 2fr 1fr; }
+      .bands .photo:nth-child(3) { display: none; }
     }
     @media (prefers-reduced-motion: reduce) { .fade { opacity: 1; transform: none; transition: none; } }
   </style>
@@ -126,131 +206,213 @@
 
   <header>
     <div class="container">
-      <a href="#" class="logo">Satina<span>.</span></a>
-      <nav>
-        <a href="#maison">La maison</a>
+      <a href="#" class="logo">Satina<span>.</span> Agro-Service</a>
+      <nav data-menu>
+        <a href="#">Accueil</a>
+        <a href="#apropos">À propos</a>
         <a href="#produits">Produits</a>
         <a href="#services">Services</a>
+        <a href="#importation">Importation</a>
+        <a href="#fournisseur">Devenir fournisseur</a>
+        <a href="#actualites">Actualités</a>
         <a href="#contact">Contact</a>
       </nav>
+      <div class="tools">
+        <span class="lang"><button class="on" data-lang="fr">FR</button> / <button data-lang="en">EN</button></span>
+        <a href="#devis" class="btn">Devis</a>
+        <button class="menu-btn" data-menu-btn aria-label="Menu"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 7h18v1.5H3zm0 8h18v1.5H3z"/></svg></button>
+      </div>
     </div>
   </header>
 
   <section class="hero">
     <div class="container">
-      <p class="kicker">Import & distribution alimentaire</p>
-      <h1>Les denrées essentielles, importées avec <i>soin</i>, vendues au juste prix.</h1>
-      <div class="hero-bottom">
-        <p>Vermicelle, oignons, riz, sucre, farine : nous faisons venir des conteneurs entiers et servons commerçants et particuliers.</p>
-        <div class="meta">
-          <div><strong>250+</strong><span>conteneurs</span></div>
-          <div><strong>500+</strong><span>clients</span></div>
-          <div><strong>10 ans</strong><span>d'expérience</span></div>
-        </div>
+      <p class="kicker">SATINA AGRO-SERVICE — Conakry, République de Guinée</p>
+      <h1>Votre partenaire en importation, distribution et <i>approvisionnement</i> alimentaire.</h1>
+      <p class="hero-sub"><span>Produits agricoles</span><span>Produits alimentaires</span><span>Importation</span><span>Distribution</span></p>
+      <div class="actions">
+        <a href="#produits" class="btn">Nos produits</a>
+        <a href="#devis" class="btn ghost">Demander un devis</a>
+        <a href="#fournisseur" class="btn ghost">Devenir fournisseur</a>
       </div>
-      <div class="bands" aria-hidden="true"><div></div><div></div><div></div></div>
+      <div class="bands">
+        <div class="photo"><div><span data-ico="photo"></span>Photo : oignons</div></div>
+        <div class="photo"><div><span data-ico="photo"></span>Photo : entrepôt</div></div>
+        <div class="photo"><div><span data-ico="photo"></span>Photo : port</div></div>
+      </div>
     </div>
   </section>
 
-  <section id="maison">
-    <div class="container split">
-      <div class="fade">
-        <p class="kicker">La maison</p>
-        <h2>Une affaire de confiance.</h2>
+  <section id="apropos">
+    <div class="container">
+      <div class="split">
+        <div class="fade"><p class="kicker">À propos</p><h2 class="h2">Une maison guinéenne, ouverte sur le monde.</h2></div>
+        <div class="prose fade">
+          <div id="presentation"></div>
+          <div class="engagements" id="engagements"></div>
+        </div>
       </div>
-      <div class="prose fade">
-        <p>Satina est née d'une idée simple : rendre les produits de base accessibles, en qualité comme en quantité. En achetant directement par conteneurs auprès de fournisseurs choisis, nous évitons les intermédiaires et proposons des prix justes.</p>
-        <p>Chaque arrivage est contrôlé, stocké dans de bonnes conditions, puis revendu en gros, en demi-gros ou au détail. Commerçants, restaurateurs et familles trouvent chez nous ce dont ils ont besoin, toute l'année.</p>
-        <a href="#contact" class="link">Nous rencontrer →</a>
+
+      <div class="pdg fade">
+        <div class="photo"><div><span data-ico="personne"></span>Photo du PDG<br>à fournir</div></div>
+        <div>
+          <p class="kicker">Mot du PDG</p>
+          <blockquote id="motPdg"></blockquote>
+          <cite>M. Talibé Diallo<small>Président-Directeur Général — texte provisoire, à valider</small></cite>
+        </div>
       </div>
+
+      <div class="values fade" id="valeurs"></div>
     </div>
   </section>
 
   <section id="produits">
     <div class="container">
-      <div class="split" style="margin-bottom:48px">
-        <div class="fade">
-          <p class="kicker">Produits</p>
-          <h2>Ce que nous importons.</h2>
-        </div>
-        <p class="fade" style="color:var(--muted);align-self:end">Catalogue indicatif. Les produits et formats varient selon les arrivages — contactez-nous pour connaître les disponibilités du moment.</p>
+      <div class="split">
+        <div class="fade"><p class="kicker">Nos produits</p><h2 class="h2">Ce que nous importons.</h2></div>
+        <p class="fade" style="color:var(--muted);align-self:end">Produits agricoles et alimentaires, en gros et pour les professionnels. La gamme s'élargira progressivement ; chaque produit aura sa propre fiche.</p>
       </div>
-      <ul class="product-list" id="productList"></ul>
+      <ul class="product-list" id="produitsList"></ul>
+    </div>
+  </section>
+
+  <section class="onion" id="oignons">
+    <div class="container">
+      <p class="kicker">Activité phare</p>
+      <h2 class="h2 fade" style="max-width:780px">Importation d'oignons : nous recherchons des partenaires sérieux.</h2>
+      <p class="fade" style="color:var(--muted);max-width:680px;margin-top:18px">SATINA AGRO-SERVICE développe l'importation et la distribution d'oignons pour le marché guinéen et, à terme, ouest-africain.</p>
+      <div class="onion-grid" id="criteres"></div>
+      <div class="cta"><a href="#fournisseur" class="btn">Proposer des oignons</a><small>Critères indicatifs, à confirmer par la direction.</small></div>
     </div>
   </section>
 
   <section id="services">
     <div class="container">
-      <div class="fade">
-        <p class="kicker">Services</p>
-        <h2 style="font-size:clamp(2rem,4vw,3rem);margin-top:12px;max-width:640px">Du port à votre porte, une seule adresse.</h2>
-      </div>
-      <div class="services-grid">
-        <div class="svc fade"><span class="kicker">I.</span><h3>Importation</h3><p>Achat auprès des fournisseurs, transport maritime et dédouanement pris en charge.</p></div>
-        <div class="svc fade"><span class="kicker">II.</span><h3>Vente en gros</h3><p>Conteneurs complets, palettes ou lots pour revendeurs et professionnels.</p></div>
-        <div class="svc fade"><span class="kicker">III.</span><h3>Vente au détail</h3><p>Au sac ou au carton, directement au dépôt, pour les particuliers.</p></div>
+      <p class="kicker">Nos services</p>
+      <h2 class="h2 fade">Du port au marché.</h2>
+      <div class="services" id="servicesGrid"></div>
+    </div>
+  </section>
+
+  <section id="importation">
+    <div class="container">
+      <p class="kicker">Importation & approvisionnement</p>
+      <p class="lead-quote fade">« SATINA AGRO-SERVICE développe des solutions d'approvisionnement en produits agricoles et alimentaires afin de répondre aux besoins du marché guinéen et de développer progressivement son réseau commercial en Afrique de l'Ouest. »</p>
+      <div class="chain fade" id="chaine"></div>
+      <div class="chain-notes" id="chaineNotes"></div>
+      <div class="duo">
+        <div class="fade"><p class="kicker">Opération de référence</p><h3 id="operationTitre"></h3><dl id="operation"></dl></div>
+        <div class="fade"><p class="kicker">Nous travaillons avec</p><h3>Un réseau de partenaires.</h3><div class="tags" id="typesPartenaires"></div></div>
       </div>
     </div>
   </section>
 
-  <section class="quote">
-    <div class="container fade">
-      <blockquote>« Des produits réguliers, des prix honnêtes et un accueil toujours chaleureux. »</blockquote>
-      <cite>— Un client commerçant (témoignage fictif)</cite>
+  <section id="fournisseur" style="background:var(--paper)">
+    <div class="container">
+      <p class="kicker">Devenir fournisseur</p>
+      <h2 class="h2 fade" style="max-width:820px">Vous êtes producteur ou exportateur ? Devenez notre partenaire.</h2>
+      <div class="form-split">
+        <aside class="fade">
+          <p>SATINA AGRO-SERVICE est un importateur basé à Conakry, en Guinée. Nous construisons un réseau de fournisseurs fiables pour approvisionner régulièrement le marché.</p>
+          <p>Présentez-nous votre offre : produit, origine, quantités, conditionnement, port de départ. Nous étudions chaque proposition sérieuse.</p>
+          <div class="tags" id="produitsRecherches"></div>
+        </aside>
+        <form data-form="fournisseur"></form>
+      </div>
+    </div>
+  </section>
+
+  <section id="partenaires">
+    <div class="container">
+      <div class="split">
+        <div><p class="kicker">Nos partenaires</p><h2 class="h2">Ils nous font confiance.</h2></div>
+        <p style="color:var(--muted);align-self:end">Les logos de nos partenaires et fournisseurs seront présentés ici, avec leur autorisation.</p>
+      </div>
+      <div class="logos"><div>Logo partenaire</div><div>Logo partenaire</div><div>Logo partenaire</div><div>Logo partenaire</div><div>Votre logo ici ?</div></div>
+    </div>
+  </section>
+
+  <section id="actualites">
+    <div class="container">
+      <p class="kicker">Actualités</p>
+      <h2 class="h2">Arrivages, partenariats, annonces.</h2>
+      <div class="news" id="news"></div>
+    </div>
+  </section>
+
+  <section id="devis" style="background:var(--paper)">
+    <div class="container">
+      <p class="kicker">Demande de devis</p>
+      <h2 class="h2">Obtenez un prix, simplement.</h2>
+      <div class="form-split">
+        <aside>
+          <p>Grossistes, détaillants, commerçants, revendeurs, magasins, restaurants, entreprises : indiquez le produit et la quantité souhaités.</p>
+          <p>Réponse par téléphone, WhatsApp ou e-mail.</p>
+          <a data-lien="whatsapp" class="link">Écrire sur WhatsApp →</a>
+        </aside>
+        <form data-form="devis"></form>
+      </div>
     </div>
   </section>
 
   <section class="contact" id="contact">
     <div class="container">
       <p class="kicker">Contact</p>
-      <h2 class="fade">Une commande ?<br><a href="mailto:contact@satina.com">Écrivez-nous.</a></h2>
-      <div class="contact-grid fade">
-        <div><p class="kicker">Téléphone · WhatsApp</p><p>+XXX XX XX XX XX</p></div>
-        <div><p class="kicker">E-mail</p><p>contact@satina.com</p></div>
-        <div><p class="kicker">Dépôt</p><p>Adresse à compléter<br>Lun – Sam, 8h – 18h</p></div>
+      <h2>Une question, une offre ?<br><a data-lien="email">Écrivez-nous.</a></h2>
+      <div class="contact-grid">
+        <div><p class="kicker">Téléphone · WhatsApp</p><p><a data-lien="tel" data-s="tel" class="link"></a></p></div>
+        <div><p class="kicker">E-mail</p><p><a data-lien="email" data-s="email" class="link" style="word-break:break-all"></a></p></div>
+        <div><p class="kicker">Adresse</p><p data-s="adresse"></p></div>
+        <div><p class="kicker">Direction</p><p>PDG : <span data-s="pdg"></span></p></div>
+        <div><p class="kicker">Horaires</p><p data-s="horaires"></p></div>
+        <div><p class="kicker">Réseaux sociaux</p><p>Facebook · LinkedIn (à fournir)</p></div>
       </div>
-      <form id="contactForm" class="fade">
-        <div><label for="nom">Nom</label><input id="nom" required></div>
-        <div><label for="tel">Téléphone</label><input id="tel" type="tel" required></div>
-        <div class="full"><label for="msg">Votre besoin</label><textarea id="msg" placeholder="Produits, quantités, lieu de livraison…"></textarea></div>
-        <button type="submit">Envoyer</button>
-        <p class="form-msg full" id="formMsg">Merci, nous revenons vers vous rapidement (démo).</p>
-      </form>
+      <iframe class="map" data-carte loading="lazy" title="Carte : SATINA AGRO-SERVICE, Matam, Conakry"></iframe>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <span>© <span id="year"></span> Satina</span>
-      <span>Maquette 3 · Minimaliste</span>
+      <div class="grid">
+        <div>
+          <p class="slogan">« Cultivons l'avenir ensemble. »</p>
+          <p><strong data-s="raison" style="color:var(--ink);font-weight:500"></strong><br>RCCM : <span data-s="rccm"></span> — NIF : <span data-s="nif"></span><br><span data-s="ville"></span></p>
+        </div>
+        <div><h4>Le site</h4><ul><li><a href="#apropos">À propos</a></li><li><a href="#produits">Nos produits</a></li><li><a href="#importation">Importation</a></li><li><a href="#fournisseur">Devenir fournisseur</a></li><li><a href="#partenaires">Partenaires</a></li><li><a href="#actualites">Actualités</a></li></ul></div>
+        <div><h4>Contact</h4><ul><li>PDG : <span data-s="pdg"></span></li><li><a data-lien="tel" data-s="tel"></a></li><li><a data-lien="email">E-mail</a></li><li><a data-lien="whatsapp">WhatsApp</a></li></ul></div>
+      </div>
+      <div class="bottom"><span>© <span data-annee></span> SATINA AGRO-SERVICE — Importation • Distribution • Commerce • Approvisionnement</span><span>Maquette 3 · Minimaliste</span></div>
     </div>
   </footer>
 
+  <a class="wa-float" data-lien="whatsapp" data-ico="whatsapp" aria-label="Écrire sur WhatsApp"></a>
+
+  <script src="../commun/satina.js"></script>
   <script>
-    const products = [
-      ["Vermicelle", "Vermicelle de blé dur, plusieurs marques.", "Carton · Conteneur"],
-      ["Oignons", "Oignons frais, arrivages réguliers.", "Sac 25 / 50 kg"],
-      ["Riz", "Riz parfumé et riz brisé.", "Sac 25 / 50 kg"],
-      ["Sucre", "Sucre en poudre et en morceaux.", "Sac · Carton"],
-      ["Farine", "Farine de blé pour boulangerie et ménage.", "Sac 50 kg"],
-      ["Huile végétale", "Huile de cuisine en bidons.", "Bidon 5 – 20 L"],
-    ];
-    document.getElementById("productList").innerHTML = products.map(([name, desc, fmt], i) => `
-      <li class="fade"><span class="n">${String(i + 1).padStart(2, "0")}</span>
-        <div><h3>${name}</h3><p>${desc}</p></div>
-        <span class="fmt">${fmt}</span></li>`).join("");
+    const S = SATINA, $ = id => document.getElementById(id);
+    $("presentation").innerHTML = S.presentation.map(p => `<p>${p}</p>`).join("");
+    $("engagements").innerHTML = S.engagements.map(e => `<span>${e}</span>`).join("");
+    $("motPdg").textContent = "« " + S.motPdg + " »";
+    $("valeurs").innerHTML = `<div class="vision"><h3>Vision</h3><p>${S.vision}</p></div>` + S.valeurs.map(v => `<div><h3>${v.t}</h3><p>${v.d}</p></div>`).join("");
+    $("produitsList").innerHTML = S.produits.map((p, i) => `
+      <li class="fade"><span class="n">${String(i + 1).padStart(2, "0")}</span>${S.ico(p.id)}
+        <div><h3>${p.nom}${p.vedette ? '<span class="phare">Activité phare</span>' : ""}</h3><p>${p.desc}</p></div>
+        <span class="fmt">${p.format}</span></li>`).join("");
+    $("criteres").innerHTML = S.oignons.map(c => `<div class="fade"><h3>${c.t}</h3><ul>${c.items.map(i => `<li>${i}</li>`).join("")}</ul></div>`).join("");
+    $("servicesGrid").innerHTML = S.services.map(s => `<div class="svc">${S.ico(s.i)}<h3>${s.t}</h3><p>${s.d}</p></div>`).join("");
+    $("chaine").innerHTML = S.chaine.map(c => `<span>${c.t}</span>`).join("<i>→</i>");
+    $("chaineNotes").innerHTML = S.chaine.map(c => `<span>${c.d}</span>`).join("");
+    $("operationTitre").textContent = S.operation.t + ".";
+    $("operation").innerHTML = S.operation.details.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
+    $("typesPartenaires").innerHTML = S.typesPartenaires.map(t => `<span>${t}</span>`).join("");
+    $("produitsRecherches").innerHTML = S.produits.map(p => `<span>${p.nom}</span>`).join("");
+    $("news").innerHTML = S.actualites.map(a => `
+      <article class="fade"><div class="photo">${S.ico("photo")}</div><small>${a.cat} — ${a.date}</small><h3>${a.t}</h3><p>${a.d}</p></article>`).join("");
+    document.querySelectorAll("form[data-form]").forEach(f => S.formulaire(f, "btn"));
+    S.init();
 
-    const io = new IntersectionObserver(entries => entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
-    }), { threshold: .1 });
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .08 });
     document.querySelectorAll(".fade").forEach(el => io.observe(el));
-
-    document.getElementById("contactForm").addEventListener("submit", e => {
-      e.preventDefault();
-      document.getElementById("formMsg").style.display = "block";
-      e.target.reset();
-    });
-    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
