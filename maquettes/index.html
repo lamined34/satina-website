@@ -23,7 +23,12 @@
     .preview span { position: absolute; left: 22px; bottom: 22px; font-size: 1.6rem; font-weight: 700; }
     .p1 span { color: #fff; font-family: Georgia, serif; }
     .p2 span { color: #f0b429; }
-    .p3 span { color: #1f1d1a; font-family: Georgia, serif; font-weight: 400; }
+    .p3 span, .p5 span { color: #1f1d1a; font-family: Georgia, serif; font-weight: 400; }
+    .p4 { background: #0b110d; }
+    .p4 span { color: #ecf1ed; }
+    .p4::before { content: ""; position: absolute; left: 22px; top: 26px; width: 70px; height: 6px; background: #f0b429; border-radius: 3px; }
+    .p5 { background: #f6f1e7; border-bottom: 6px solid #b04e2a; }
+    .badge { display: inline-block; font-size: .72rem; font-weight: 700; background: #eef0f3; color: #5d6877; padding: 2px 8px; border-radius: 99px; margin-left: 6px; vertical-align: middle; }
     .p3::before { content: ""; position: absolute; right: 22px; top: 22px; width: 45%; height: 50px; background: repeating-linear-gradient(90deg, #b04e2a 0 10px, #9a4424 10px 12px); border-radius: 3px; }
     .p2::before { content: ""; position: absolute; right: 22px; top: 30px; width: 40%; height: 46px; background: repeating-linear-gradient(90deg, #b4485a 0 10px, #9c3c4d 10px 12px); border-radius: 4px; transform: rotate(-6deg); }
     .body { padding: 22px; flex: 1; }
@@ -36,8 +41,8 @@
 </head>
 <body>
   <div class="wrap">
-    <h1>SATINA AGRO-SERVICE : 3 propositions de maquette</h1>
-    <p class="intro">Trois directions visuelles construites à partir du cahier des charges : même contenu, même arborescence, trois styles. Les photos, le logo et les couleurs officielles restent à fournir.</p>
+    <h1>SATINA AGRO-SERVICE : 5 propositions de maquette</h1>
+    <p class="intro">Trois directions visuelles construites à partir du cahier des charges, plus deux versions épurées (moins de texte, moins de sections). Les photos, le logo et les couleurs officielles restent à fournir.</p>
     <div class="grid">
       <a class="card" href="1-classique/">
         <div class="preview p1"><span>Institutionnelle</span></div>
@@ -51,8 +56,16 @@
         <div class="preview p3"><span>Minimaliste</span></div>
         <div class="body"><h2>3. Minimaliste</h2><p>Crème, terre cuite et olive : chaleureux, africain et premium. Style éditorial très épuré.</p><span class="open">Voir la maquette →</span></div>
       </a>
+      <a class="card" href="4-moderne-epure/">
+        <div class="preview p4"><span>Moderne épurée</span></div>
+        <div class="body"><h2>4. Moderne épurée <span class="badge">courte</span></h2><p>La maquette 2 réduite à l'essentiel : produits, oignons, services, fournisseurs, devis et contact. Textes courts, formulaires simplifiés.</p><span class="open">Voir la maquette →</span></div>
+      </a>
+      <a class="card" href="5-minimaliste-epure/">
+        <div class="preview p5"><span>Minimaliste épurée</span></div>
+        <div class="body"><h2>5. Minimaliste épurée <span class="badge">courte</span></h2><p>La maquette 3 en version très courte : quelques sections, de grands titres, très peu de texte.</p><span class="open">Voir la maquette →</span></div>
+      </a>
     </div>
-    <p class="note">Les trois maquettes sont pensées d'abord pour le mobile et incluent le bouton WhatsApp, les formulaires « Devenir fournisseur » et « Demande de devis ». Les formulaires sont des démonstrations : ils n'envoient rien.</p>
+    <p class="note">Les cinq maquettes sont pensées d'abord pour le mobile et incluent le bouton WhatsApp, les formulaires « Devenir fournisseur » et « Demande de devis ». Les formulaires sont des démonstrations : ils n'envoient rien.</p>
   </div>
 </body>
 </html>

@@ -1,18 +1,22 @@
 # Maquettes : site SATINA AGRO-SERVICE
 
-Trois propositions visuelles construites à partir du cahier des charges de SATINA AGRO-SERVICE (importation, distribution et approvisionnement en produits agricoles et alimentaires, Conakry, Guinée).
+Cinq propositions visuelles construites à partir du cahier des charges de SATINA AGRO-SERVICE (importation, distribution et approvisionnement en produits agricoles et alimentaires, Conakry, Guinée).
 
 | Dossier | Style |
 |---|---|
 | `1-classique/` | Institutionnelle : vert agricole et or, sobre et rassurante |
 | `2-moderne/` | Moderne : fond sombre, accent safran, section oignons très visible |
 | `3-minimaliste/` | Minimaliste : crème, terre cuite et olive, style éditorial |
+| `4-moderne-epure/` | Version courte de la maquette 2 : l'essentiel seulement |
+| `5-minimaliste-epure/` | Version courte de la maquette 3 : très peu de texte |
 
-Les trois maquettes partagent le même contenu et suivent l'arborescence du cahier des charges (§35) : Accueil, À propos (avec le mot du PDG, la vision et les valeurs), Produits, Importation d'oignons, Services, Importation & approvisionnement, Devenir fournisseur, Partenaires, Actualités, Demande de devis, Contact. Elles tiennent chacune sur une seule page ; dans le site final, chaque rubrique deviendra une vraie page.
+Les maquettes 1 à 3 partagent le même contenu et suivent l'arborescence du cahier des charges (§35) : Accueil, À propos (avec le mot du PDG, la vision et les valeurs), Produits, Importation d'oignons, Services, Importation & approvisionnement, Devenir fournisseur, Partenaires, Actualités, Demande de devis, Contact. Elles tiennent chacune sur une seule page ; dans le site final, chaque rubrique deviendra une vraie page.
+
+Les maquettes 4 et 5 sont volontairement plus courtes. Elles gardent les deux objectifs du cahier des charges (trouver des clients, trouver des fournisseurs) avec les produits, les oignons, les formulaires fournisseur et devis (version courte), le contact et le bouton WhatsApp. À propos, mot du PDG, valeurs, chaîne d'approvisionnement, partenaires et actualités n'y figurent pas.
 
 ## Contenu partagé
 
-Tout le contenu (coordonnées, produits, services, valeurs, actualités, champs des formulaires) se trouve dans `commun/satina.js`. Une modification dans ce fichier s'applique aux trois maquettes. Par exemple, pour ajouter un produit, il suffit d'ajouter une ligne dans la liste `produits`.
+Tout le contenu (coordonnées, produits, services, valeurs, actualités, champs des formulaires) se trouve dans `commun/satina.js`. Une modification dans ce fichier s'applique à toutes les maquettes. Par exemple, pour ajouter un produit, il suffit d'ajouter une ligne dans la liste `produits`.
 
 ## Voir les maquettes
 

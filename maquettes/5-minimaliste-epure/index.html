@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SATINA AGRO-SERVICE — Importation alimentaire, Conakry</title>
+  <meta name="description" content="SATINA AGRO-SERVICE : importation et distribution d'oignons et de produits alimentaires à Conakry, Guinée.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f1e7;
+      --ink: #1f1d1a;
+      --muted: #756d63;
+      --line: #e2d8c8;
+      --terra: #b04e2a;
+      --olive: #556b2f;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "DM Sans", sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; font-size: 17px; }
+    h1, h2 { font-family: "Fraunces", serif; font-weight: 400; line-height: 1.1; }
+    a { color: inherit; }
+    .container { width: min(980px, 100% - 32px); margin-inline: auto; }
+    section { padding: 104px 0; border-top: 1px solid var(--line); }
+    .kicker { font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    h2 { font-size: clamp(2rem, 4.4vw, 3rem); }
+    .btn { display: inline-block; text-decoration: none; background: var(--ink); color: var(--bg); padding: 14px 28px; border-radius: 99px; font: inherit; font-size: .95rem; border: 1px solid var(--ink); cursor: pointer; transition: .2s; }
+    .btn:hover { background: var(--terra); border-color: var(--terra); }
+    .link { text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+    .link:hover { color: var(--terra); }
+
+    header .container { display: flex; justify-content: space-between; align-items: baseline; padding: 26px 0; }
+    .logo { font-family: "Fraunces", serif; font-size: 1.3rem; text-decoration: none; }
+    .logo span { color: var(--terra); }
+    .right { display: flex; gap: 22px; font-size: .9rem; color: var(--muted); }
+    .right a { text-decoration: none; }
+    .right a:hover { color: var(--ink); }
+    .lang button { background: none; border: 0; font: inherit; color: inherit; cursor: pointer; }
+    .lang .on { color: var(--ink); }
+
+    .hero { border-top: 0; padding: 88px 0 104px; }
+    .hero h1 { font-size: clamp(2.6rem, 7vw, 5.2rem); letter-spacing: -.02em; }
+    .hero h1 i { color: var(--terra); }
+    .hero .links { display: flex; flex-wrap: wrap; gap: 14px 30px; margin-top: 44px; align-items: center; }
+
+    .words { font-family: "Fraunces", serif; font-size: clamp(1.6rem, 3.6vw, 2.6rem); line-height: 1.45; margin-top: 18px; }
+    .words span:not(:last-child)::after { content: " · "; color: var(--line); }
+    .words .phare { color: var(--terra); }
+
+    .onion { background: var(--terra); color: #fbeee7; border-top: 0; }
+    .onion .kicker { color: #f0cbbb; }
+    .onion p.lead { max-width: 560px; margin: 18px 0 28px; color: #f6dcd0; }
+    .onion .btn { background: #fbeee7; color: var(--terra); border-color: #fbeee7; }
+    .onion .btn:hover { background: var(--ink); color: #fbeee7; border-color: var(--ink); }
+
+    .two { display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; }
+    .two p { color: var(--muted); margin-top: 16px; }
+    form { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 28px; }
+    .champ.full { grid-column: 1 / -1; }
+    .champ label { font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+    .champ input, .champ select, .champ textarea { width: 100%; border: 0; border-bottom: 1px solid var(--ink); background: transparent; padding: 8px 0; font: inherit; color: var(--ink); border-radius: 0; }
+    .champ input:focus, .champ select:focus, .champ textarea:focus { outline: none; border-bottom-color: var(--terra); }
+    .champ textarea { min-height: 70px; resize: vertical; }
+    .form-msg { margin-top: 10px; color: var(--olive); }
+
+    .coords { display: grid; gap: 10px; margin-top: 24px; }
+    .map { width: 100%; height: 300px; border: 0; margin-top: 64px; filter: sepia(.35) saturate(.8); }
+
+    footer { padding: 32px 0; border-top: 1px solid var(--line); font-size: .84rem; color: var(--muted); }
+    footer .container { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    footer .slogan { font-family: "Fraunces", serif; color: var(--ink); font-size: 1.1rem; }
+
+    .wa-float { position: fixed; right: 18px; bottom: 18px; z-index: 60; width: 54px; height: 54px; border-radius: 50%; background: var(--olive); color: #fff; display: grid; place-items: center; box-shadow: 0 8px 22px rgba(0,0,0,.2); }
+    .wa-float:hover { background: #25d366; }
+    .wa-float svg { width: 28px; height: 28px; }
+
+    @media (max-width: 760px) {
+      section { padding: 76px 0; }
+      .right a { display: none; }
+      .two { grid-template-columns: 1fr; gap: 32px; }
+      form { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a href="#" class="logo">Satina<span>.</span> Agro-Service</a>
+      <div class="right">
+        <a href="#produits">Produits</a>
+        <a href="#fournisseur">Fournisseurs</a>
+        <a href="#contact">Contact</a>
+        <span class="lang"><button class="on" data-lang="fr">FR</button> / <button data-lang="en">EN</button></span>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <p class="kicker">Conakry — République de Guinée</p>
+      <h1>Importer, distribuer, <i>approvisionner</i>.</h1>
+      <div class="links">
+        <a href="#contact" class="btn">Demander un devis</a>
+        <a href="#produits" class="link">Nos produits</a>
+        <a href="#fournisseur" class="link">Devenir fournisseur</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="produits">
+    <div class="container">
+      <p class="kicker">Nos produits</p>
+      <p class="words" id="produits-list"></p>
+    </div>
+  </section>
+
+  <section class="onion">
+    <div class="container">
+      <p class="kicker">Activité phare</p>
+      <h2>Importation d'oignons.</h2>
+      <p class="lead">Rouges, jaunes ou blancs, en sacs de 25 ou 50 kg, par conteneurs complets. Nous recherchons des exportateurs sérieux.</p>
+      <a href="#fournisseur" class="btn">Proposer des oignons</a>
+    </div>
+  </section>
+
+  <section id="fournisseur">
+    <div class="container two">
+      <div>
+        <p class="kicker">Devenir fournisseur</p>
+        <h2>Producteur ou exportateur ?</h2>
+        <p>Devenez notre partenaire. Présentez-nous votre offre.</p>
+      </div>
+      <form data-form="fournisseurCourt"></form>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container two">
+      <div>
+        <p class="kicker">Contact</p>
+        <h2>Un devis ?</h2>
+        <div class="coords">
+          <a data-lien="whatsapp" class="link" style="justify-self:start">WhatsApp · <span data-s="tel"></span></a>
+          <a data-lien="email" class="link" style="justify-self:start;word-break:break-all" data-s="email"></a>
+          <span style="color:var(--muted)">Madina École, Matam, Conakry</span>
+        </div>
+      </div>
+      <form data-form="devisCourt"></form>
+    </div>
+    <div class="container"><iframe class="map" data-carte loading="lazy" title="Carte : SATINA AGRO-SERVICE, Matam, Conakry"></iframe></div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <span class="slogan">« Cultivons l'avenir ensemble. »</span>
+      <span><span data-s="raison"></span> · RCCM <span data-s="rccm"></span> · NIF <span data-s="nif"></span> · PDG : <span data-s="pdg"></span></span>
+      <span>Maquette 5 · Minimaliste épurée</span>
+    </div>
+  </footer>
+
+  <a class="wa-float" data-lien="whatsapp" data-ico="whatsapp" aria-label="Écrire sur WhatsApp"></a>
+
+  <script src="../commun/satina.js"></script>
+  <script>
+    const S = SATINA;
+    document.getElementById("produits-list").innerHTML = S.produits.map(p => `<span${p.vedette ? ' class="phare"' : ""}>${p.nom}</span>`).join("");
+    document.querySelectorAll("form[data-form]").forEach(f => S.formulaire(f, "btn"));
+    S.init();
+  </script>
+</body>
+</html>

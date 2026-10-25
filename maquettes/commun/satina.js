@@ -130,6 +130,28 @@
           { n: "message", l: "Message", type: "textarea", full: 1 },
         ],
       },
+      // Versions courtes, pour les maquettes épurées (4 et 5).
+      fournisseurCourt: {
+        bouton: "Envoyer mon offre",
+        champs: [
+          { n: "entreprise", l: "Entreprise", req: 1 },
+          { n: "pays", l: "Pays", req: 1 },
+          { n: "contact", l: "Téléphone / WhatsApp", type: "tel", req: 1 },
+          { n: "email", l: "E-mail", type: "email", req: 1 },
+          { n: "produit", l: "Produit proposé", type: "produits", req: 1 },
+          { n: "quantite", l: "Quantité disponible" },
+          { n: "message", l: "Votre offre (origine, prix, port…)", type: "textarea", full: 1 },
+        ],
+      },
+      devisCourt: {
+        bouton: "Demander un devis",
+        champs: [
+          { n: "nom", l: "Nom", req: 1 },
+          { n: "tel", l: "Téléphone / WhatsApp", type: "tel", req: 1 },
+          { n: "produit", l: "Produit", type: "produits", req: 1 },
+          { n: "quantite", l: "Quantité", req: 1 },
+        ],
+      },
       contact: {
         bouton: "Envoyer",
         champs: [
