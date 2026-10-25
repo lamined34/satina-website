@@ -7,12 +7,12 @@ Cinq propositions visuelles construites à partir du cahier des charges de SATIN
 | `1-classique/` | Institutionnelle : vert agricole et or, sobre et rassurante |
 | `2-moderne/` | Moderne : fond sombre, accent safran, section oignons très visible |
 | `3-minimaliste/` | Minimaliste : crème, terre cuite et olive, style éditorial |
-| `4-moderne-epure/` | Version courte de la maquette 2 : l'essentiel seulement |
-| `5-minimaliste-epure/` | Version courte de la maquette 3 : très peu de texte |
+| `4-moderne-epure/` | Version courte de la maquette 2 : images, peu de texte |
+| `5-minimaliste-epure/` | Version courte de la maquette 3 : images, très peu de texte |
 
 Les maquettes 1 à 3 partagent le même contenu et suivent l'arborescence du cahier des charges (§35) : Accueil, À propos (avec le mot du PDG, la vision et les valeurs), Produits, Importation d'oignons, Services, Importation & approvisionnement, Devenir fournisseur, Partenaires, Actualités, Demande de devis, Contact. Elles tiennent chacune sur une seule page ; dans le site final, chaque rubrique deviendra une vraie page.
 
-Les maquettes 4 et 5 sont volontairement plus courtes. Elles gardent les deux objectifs du cahier des charges (trouver des clients, trouver des fournisseurs) avec les produits, les oignons, les formulaires fournisseur et devis (version courte), le contact et le bouton WhatsApp. À propos, mot du PDG, valeurs, chaîne d'approvisionnement, partenaires et actualités n'y figurent pas.
+Les maquettes 4 et 5 gardent les images mais réduisent fortement le texte : produits illustrés, à propos court avec le PDG, oignons, actualités, formulaires fournisseur et devis (version courte), contact et WhatsApp. Le mot du PDG, les valeurs, la chaîne d'approvisionnement et les partenaires n'y figurent pas.
 
 ## Contenu partagé
 

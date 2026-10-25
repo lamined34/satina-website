@@ -26,7 +26,7 @@
     h1, h2, h3 { font-family: "Space Grotesk", sans-serif; line-height: 1.05; letter-spacing: -.02em; }
     a { color: inherit; text-decoration: none; }
     .ico { width: 24px; height: 24px; flex: none; }
-    .container { width: min(1100px, 100% - 32px); margin-inline: auto; }
+    .container { width: min(1140px, 100% - 32px); margin-inline: auto; }
     section { padding: 96px 0; }
     h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); margin-bottom: 36px; }
     .btn { display: inline-flex; align-items: center; justify-content: center; padding: 15px 26px; border-radius: 99px; font: inherit; font-weight: 600; border: 0; cursor: pointer; transition: .25s; white-space: nowrap; }
@@ -35,6 +35,8 @@
     .btn-ghost { border: 1px solid var(--line); color: var(--text); }
     .btn-ghost:hover { border-color: var(--text); }
     .btn-dark { background: #111; color: #fff; }
+    .photo { border-radius: var(--radius); background: repeating-linear-gradient(135deg, #1a271f 0 16px, #16211a 16px 32px); border: 1px dashed #33463a; display: grid; place-items: center; text-align: center; color: var(--muted); font-size: .82rem; }
+    .photo .ico { display: block; margin: 0 auto 6px; width: 32px; height: 32px; }
 
     header { position: fixed; inset: 0 0 auto; z-index: 50; background: rgba(11,17,13,.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
     header .container { display: flex; align-items: center; height: 70px; gap: 28px; }
@@ -48,36 +50,68 @@
     .lang .on { color: var(--text); font-weight: 600; }
     header .btn { padding: 10px 20px; font-size: .88rem; }
 
-    .hero { min-height: 92vh; display: flex; align-items: center; padding-top: 120px; position: relative; overflow: hidden; }
+    /* Accueil */
+    .hero { min-height: 92vh; display: flex; align-items: center; padding: 120px 0 72px; position: relative; overflow: hidden; }
     .hero::before { content: ""; position: absolute; width: 760px; height: 760px; right: -240px; top: -200px; background: radial-gradient(circle, rgba(240,180,41,.15), transparent 65%); }
-    .hero .container { position: relative; }
+    .hero .container { position: relative; display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
     .hero p.top { color: var(--accent); font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; }
-    .hero h1 { font-size: clamp(2.6rem, 7.5vw, 5.8rem); margin: 18px 0 36px; max-width: 900px; }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 4.8rem); margin: 18px 0 36px; }
     .hero h1 em { font-style: normal; color: var(--accent); }
     .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-visual { position: relative; aspect-ratio: 4/5; }
+    .hero-visual .photo { position: absolute; inset: 0; }
+    .hero-card { position: absolute; left: -24px; bottom: 28px; background: var(--accent); color: #111; border-radius: 14px; padding: 14px 18px; font-weight: 600; box-shadow: 0 20px 40px rgba(0,0,0,.4); }
 
-    .products { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-    .product { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: flex; align-items: center; gap: 14px; font: 600 1.05rem "Space Grotesk"; }
-    .product .ico { color: var(--accent); width: 30px; height: 30px; }
-    .product.vedette { background: var(--onion); border-color: var(--onion); }
-    .product.vedette .ico { color: #fff; }
+    /* Produits */
+    .products { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .product { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: transform .3s; }
+    .product:hover { transform: translateY(-5px); }
+    .product-img { aspect-ratio: 4/3; display: grid; place-items: center; }
+    .product-img .ico { width: 56px; height: 56px; color: rgba(0,0,0,.45); }
+    .product-info { padding: 16px 18px 18px; }
+    .product h3 { font-size: 1.15rem; }
+    .product small { color: var(--muted); font-size: .82rem; }
 
+    /* À propos */
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .about .photo { min-height: 320px; }
+    .about-text { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 34px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; }
+    .about-text p { color: var(--muted); font-size: 1.05rem; }
+    .pdg { display: flex; gap: 16px; align-items: center; border-top: 1px solid var(--line); padding-top: 22px; }
+    .pdg .photo { width: 72px; height: 72px; min-height: 0; border-radius: 50%; flex: none; }
+    .pdg .photo .ico { width: 24px; height: 24px; margin: 0; }
+    .pdg strong { display: block; }
+    .pdg span { color: var(--muted); font-size: .9rem; }
+
+    /* Oignons */
     .onion { background: var(--onion); }
     .onion .container { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .onion .photo { aspect-ratio: 4/3; background: repeating-linear-gradient(135deg, rgba(0,0,0,.12) 0 16px, rgba(0,0,0,.06) 16px 32px); border-color: rgba(255,255,255,.3); color: #f4d3d8; }
     .onion h2 { margin-bottom: 14px; }
-    .onion p { color: #f4d3d8; margin-bottom: 28px; max-width: 440px; }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chips span { background: rgba(0,0,0,.18); padding: 8px 14px; border-radius: 99px; font-size: .9rem; }
+    .onion p { color: #f4d3d8; margin-bottom: 22px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .chips span { background: rgba(0,0,0,.18); padding: 7px 14px; border-radius: 99px; font-size: .9rem; }
 
+    /* Services */
     .services { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
     .service { text-align: center; padding: 28px 12px; border: 1px solid var(--line); border-radius: 14px; }
     .service .ico { color: var(--accent); width: 34px; height: 34px; margin-bottom: 12px; }
     .service h3 { font-size: 1.05rem; }
 
+    /* Actualités */
+    .news { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .news article { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .news .photo { height: 180px; border-radius: 0; border: 0; }
+    .news div.body { padding: 18px 20px 22px; }
+    .news small { color: var(--accent); font-weight: 600; }
+    .news h3 { font-size: 1.15rem; margin-top: 6px; }
+
+    /* Formulaires */
     .box { border-radius: 28px; padding: clamp(28px, 5vw, 56px); display: grid; grid-template-columns: 1fr 1.2fr; gap: 44px; }
     .box.yellow { background: var(--accent); color: #111; }
     .box.yellow h2 { margin-bottom: 14px; }
-    .box.yellow p { color: #3b2d06; }
+    .box.yellow p { color: #3b2d06; margin-bottom: 24px; }
+    .box.yellow .photo { aspect-ratio: 16/9; background: repeating-linear-gradient(135deg, rgba(0,0,0,.08) 0 16px, rgba(0,0,0,.03) 16px 32px); border-color: rgba(0,0,0,.25); color: #5c4a12; }
     form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-content: start; }
     .champ.full { grid-column: 1 / -1; }
     .champ label { display: block; font-size: .78rem; font-weight: 600; margin-bottom: 4px; opacity: .8; }
@@ -94,7 +128,7 @@
     .lines { display: grid; gap: 14px; }
     .lines a, .lines span { display: flex; gap: 12px; align-items: flex-start; }
     .lines .ico { color: var(--accent); }
-    .map { width: 100%; height: 260px; border: 0; border-radius: 14px; margin-top: 20px; filter: grayscale(.6) invert(.9) hue-rotate(180deg); }
+    .map { width: 100%; height: 240px; border: 0; border-radius: 14px; margin-top: 20px; filter: grayscale(.6) invert(.9) hue-rotate(180deg); }
 
     footer { border-top: 1px solid var(--line); padding: 32px 0; color: var(--muted); font-size: .84rem; }
     footer .container { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
@@ -104,16 +138,21 @@
 
     @media (max-width: 900px) {
       nav { display: none; }
+      .hero .container, .about, .onion .container, .box, .contact { grid-template-columns: 1fr; }
+      .hero-visual { aspect-ratio: 4/3; max-width: 420px; width: 100%; margin-left: 24px; }
       .products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .onion .container, .box, .contact { grid-template-columns: 1fr; }
       .services { grid-template-columns: repeat(3, 1fr); }
+      .news { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 560px) {
       section { padding: 72px 0; }
       .lang { display: none; }
       .actions .btn { width: 100%; }
+      .hero-visual { margin-left: 16px; width: calc(100% - 16px); }
+      .hero-card { left: -16px; }
       .services { grid-template-columns: 1fr 1fr; }
-      .products { grid-template-columns: 1fr; }
+      .news { grid-template-columns: 1fr; }
+      .about .photo { min-height: 220px; }
       form { grid-template-columns: 1fr; }
     }
   </style>
@@ -125,6 +164,7 @@
       <a href="#" class="logo" data-ico="oignons"><span>SATINA <small>AGRO-SERVICE</small></span></a>
       <nav>
         <a href="#produits">Produits</a>
+        <a href="#apropos">À propos</a>
         <a href="#oignons">Oignons</a>
         <a href="#fournisseur">Fournisseurs</a>
         <a href="#contact">Contact</a>
@@ -136,12 +176,18 @@
 
   <section class="hero">
     <div class="container">
-      <p class="top">Conakry · Guinée</p>
-      <h1>Importation et distribution <em>alimentaire</em>.</h1>
-      <div class="actions">
-        <a href="#produits" class="btn btn-accent">Nos produits</a>
-        <a href="#contact" class="btn btn-ghost">Demander un devis</a>
-        <a href="#fournisseur" class="btn btn-ghost">Devenir fournisseur</a>
+      <div>
+        <p class="top">Conakry · Guinée</p>
+        <h1>Importation et distribution <em>alimentaire</em>.</h1>
+        <div class="actions">
+          <a href="#produits" class="btn btn-accent">Nos produits</a>
+          <a href="#contact" class="btn btn-ghost">Demander un devis</a>
+          <a href="#fournisseur" class="btn btn-ghost">Devenir fournisseur</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="photo"><div><span data-ico="photo"></span>Photo : chargement d'oignons,<br>port ou entrepôt</div></div>
+        <div class="hero-card">Importateur d'oignons · Conakry</div>
       </div>
     </div>
   </section>
@@ -153,14 +199,31 @@
     </div>
   </section>
 
+  <section id="apropos">
+    <div class="container about">
+      <div class="photo"><div><span data-ico="photo"></span>Photo : locaux ou équipe, Matam</div></div>
+      <div class="about-text">
+        <div>
+          <h2 style="margin-bottom:16px">Une entreprise guinéenne, ouverte sur le monde.</h2>
+          <p>Basés à Conakry, nous importons et distribuons des produits agricoles et alimentaires, avec des partenaires en Guinée, en Afrique de l'Ouest et à l'international.</p>
+        </div>
+        <div class="pdg">
+          <div class="photo"><span data-ico="personne"></span></div>
+          <div><strong>M. Talibé Diallo</strong><span>Président-Directeur Général</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="onion" id="oignons">
     <div class="container">
+      <div class="photo"><div><span data-ico="photo"></span>Photo : sacs d'oignons</div></div>
       <div>
         <h2>Importation d'oignons.</h2>
         <p>Notre activité phare. Nous recherchons des exportateurs sérieux.</p>
+        <div class="chips"><span>Rouge</span><span>Jaune</span><span>Blanc</span><span>40 – 80 mm+</span><span>Sacs 25 / 50 kg</span><span>Conteneurs complets</span></div>
         <a href="#fournisseur" class="btn btn-dark">Proposer des oignons</a>
       </div>
-      <div class="chips"><span>Rouge</span><span>Jaune</span><span>Blanc</span><span>40 – 80 mm+</span><span>Sacs 25 / 50 kg</span><span>Conteneurs complets</span></div>
     </div>
   </section>
 
@@ -177,13 +240,21 @@
         <div>
           <h2>Producteur ou exportateur ? Devenez notre partenaire.</h2>
           <p>Proposez-nous vos produits. Nous répondons rapidement.</p>
+          <div class="photo"><div><span data-ico="photo"></span>Photo : port ou conteneurs</div></div>
         </div>
         <form data-form="fournisseurCourt"></form>
       </div>
     </div>
   </section>
 
-  <section id="contact" style="padding-top:0">
+  <section id="actualites" style="background:var(--bg-2)">
+    <div class="container">
+      <h2>Actualités.</h2>
+      <div class="news" id="news"></div>
+    </div>
+  </section>
+
+  <section id="contact">
     <div class="container contact">
       <div class="card dark">
         <h3>Demander un devis</h3>
@@ -213,8 +284,15 @@
   <script src="../commun/satina.js"></script>
   <script>
     const S = SATINA, $ = id => document.getElementById(id);
-    $("produitsGrid").innerHTML = S.produits.map(p => `<div class="product${p.vedette ? " vedette" : ""}">${S.ico(p.id)}${p.nom}</div>`).join("");
+    const couleurs = { oignons: "#b4485a", ail: "#e8dcc4", tomates: "#d9573b", pates: "#f0b429", huile: "#e6c25a", cubes: "#c98a3c", haricots: "#ece6d6", autres: "#7cc47f" };
+    $("produitsGrid").innerHTML = S.produits.map(p => `
+      <article class="product">
+        <div class="product-img" style="background:${couleurs[p.id]}">${S.ico(p.id)}</div>
+        <div class="product-info"><h3>${p.nom}</h3><small>${p.format}</small></div>
+      </article>`).join("");
     $("servicesGrid").innerHTML = S.services.map(s => `<div class="service">${S.ico(s.i)}<h3>${s.t}</h3></div>`).join("");
+    $("news").innerHTML = S.actualites.map(a => `
+      <article><div class="photo">${S.ico("photo")}</div><div class="body"><small>${a.date}</small><h3>${a.t}</h3></div></article>`).join("");
     document.querySelectorAll("form[data-form]").forEach(f => S.formulaire(f, f.dataset.form === "fournisseurCourt" ? "btn btn-dark" : "btn btn-accent"));
     S.init();
   </script>

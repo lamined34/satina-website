@@ -11,18 +11,21 @@
   <style>
     :root {
       --bg: #f6f1e7;
+      --paper: #fffcf6;
       --ink: #1f1d1a;
       --muted: #756d63;
       --line: #e2d8c8;
       --terra: #b04e2a;
       --olive: #556b2f;
+      --sand: #d9c4a0;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: "DM Sans", sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; font-size: 17px; }
-    h1, h2 { font-family: "Fraunces", serif; font-weight: 400; line-height: 1.1; }
+    h1, h2, h3 { font-family: "Fraunces", serif; font-weight: 400; line-height: 1.1; }
     a { color: inherit; }
-    .container { width: min(980px, 100% - 32px); margin-inline: auto; }
+    .ico { width: 22px; height: 22px; flex: none; }
+    .container { width: min(1040px, 100% - 32px); margin-inline: auto; }
     section { padding: 104px 0; border-top: 1px solid var(--line); }
     .kicker { font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
     h2 { font-size: clamp(2rem, 4.4vw, 3rem); }
@@ -30,6 +33,8 @@
     .btn:hover { background: var(--terra); border-color: var(--terra); }
     .link { text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
     .link:hover { color: var(--terra); }
+    .photo { background: var(--sand); background-image: repeating-linear-gradient(90deg, rgba(0,0,0,.04) 0 24px, transparent 24px 28px); display: grid; place-items: center; text-align: center; color: #6e5c3e; font-size: .8rem; border-radius: 4px; }
+    .photo .ico { display: block; margin: 0 auto 6px; width: 28px; height: 28px; }
 
     header .container { display: flex; justify-content: space-between; align-items: baseline; padding: 26px 0; }
     .logo { font-family: "Fraunces", serif; font-size: 1.3rem; text-decoration: none; }
@@ -40,23 +45,39 @@
     .lang button { background: none; border: 0; font: inherit; color: inherit; cursor: pointer; }
     .lang .on { color: var(--ink); }
 
-    .hero { border-top: 0; padding: 88px 0 104px; }
+    .hero { border-top: 0; padding: 80px 0 0; }
     .hero h1 { font-size: clamp(2.6rem, 7vw, 5.2rem); letter-spacing: -.02em; }
     .hero h1 i { color: var(--terra); }
-    .hero .links { display: flex; flex-wrap: wrap; gap: 14px 30px; margin-top: 44px; align-items: center; }
+    .hero .links { display: flex; flex-wrap: wrap; gap: 14px 30px; margin-top: 40px; align-items: center; }
+    .bands { display: grid; grid-template-columns: 3fr 2fr 1fr; gap: 10px; height: 260px; margin-top: 72px; }
+    .bands .photo:nth-child(1) { background-color: var(--terra); color: #f3d9cc; }
+    .bands .photo:nth-child(2) { background-color: var(--olive); color: #dfe6cf; }
 
-    .words { font-family: "Fraunces", serif; font-size: clamp(1.6rem, 3.6vw, 2.6rem); line-height: 1.45; margin-top: 18px; }
-    .words span:not(:last-child)::after { content: " · "; color: var(--line); }
-    .words .phare { color: var(--terra); }
+    .products { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 20px; margin-top: 40px; }
+    .product .photo { aspect-ratio: 1; margin-bottom: 12px; }
+    .product .photo .ico { width: 48px; height: 48px; }
+    .product h3 { font-size: 1.3rem; }
+    .product small { color: var(--olive); font-size: .84rem; }
+    .product.phare h3 { color: var(--terra); }
+
+    .two { display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; align-items: center; }
+    .two p { color: var(--muted); margin-top: 16px; }
+    .about .photo { aspect-ratio: 4/5; }
+    .about cite { display: block; margin-top: 26px; font-style: normal; }
+    .about cite small { display: block; color: var(--muted); }
 
     .onion { background: var(--terra); color: #fbeee7; border-top: 0; }
     .onion .kicker { color: #f0cbbb; }
-    .onion p.lead { max-width: 560px; margin: 18px 0 28px; color: #f6dcd0; }
+    .onion p.lead { margin: 18px 0 28px; color: #f6dcd0; }
+    .onion .photo { aspect-ratio: 4/3; background-color: #9a4424; color: #f3d9cc; }
     .onion .btn { background: #fbeee7; color: var(--terra); border-color: #fbeee7; }
     .onion .btn:hover { background: var(--ink); color: #fbeee7; border-color: var(--ink); }
 
-    .two { display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; }
-    .two p { color: var(--muted); margin-top: 16px; }
+    .news { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 40px; }
+    .news .photo { aspect-ratio: 4/3; margin-bottom: 14px; }
+    .news small { color: var(--terra); letter-spacing: .1em; text-transform: uppercase; font-size: .72rem; }
+    .news h3 { font-size: 1.3rem; margin-top: 4px; }
+
     form { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 28px; }
     .champ.full { grid-column: 1 / -1; }
     .champ label { font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
@@ -64,6 +85,7 @@
     .champ input:focus, .champ select:focus, .champ textarea:focus { outline: none; border-bottom-color: var(--terra); }
     .champ textarea { min-height: 70px; resize: vertical; }
     .form-msg { margin-top: 10px; color: var(--olive); }
+    .two.top { align-items: start; }
 
     .coords { display: grid; gap: 10px; margin-top: 24px; }
     .map { width: 100%; height: 300px; border: 0; margin-top: 64px; filter: sepia(.35) saturate(.8); }
@@ -80,6 +102,11 @@
       section { padding: 76px 0; }
       .right a { display: none; }
       .two { grid-template-columns: 1fr; gap: 32px; }
+      .about .photo { aspect-ratio: 4/3; }
+      .products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .news { grid-template-columns: 1fr; }
+      .bands { height: 160px; margin-top: 52px; grid-template-columns: 2fr 1fr; }
+      .bands .photo:nth-child(3) { display: none; }
       form { grid-template-columns: 1fr; }
     }
   </style>
@@ -91,6 +118,7 @@
       <a href="#" class="logo">Satina<span>.</span> Agro-Service</a>
       <div class="right">
         <a href="#produits">Produits</a>
+        <a href="#apropos">À propos</a>
         <a href="#fournisseur">Fournisseurs</a>
         <a href="#contact">Contact</a>
         <span class="lang"><button class="on" data-lang="fr">FR</button> / <button data-lang="en">EN</button></span>
@@ -107,27 +135,48 @@
         <a href="#produits" class="link">Nos produits</a>
         <a href="#fournisseur" class="link">Devenir fournisseur</a>
       </div>
+      <div class="bands">
+        <div class="photo"><div><span data-ico="photo"></span>Photo : oignons</div></div>
+        <div class="photo"><div><span data-ico="photo"></span>Photo : entrepôt</div></div>
+        <div class="photo"><div><span data-ico="photo"></span>Photo : port</div></div>
+      </div>
     </div>
   </section>
 
   <section id="produits">
     <div class="container">
       <p class="kicker">Nos produits</p>
-      <p class="words" id="produits-list"></p>
+      <h2>Ce que nous importons.</h2>
+      <div class="products" id="produitsGrid"></div>
+    </div>
+  </section>
+
+  <section id="apropos">
+    <div class="container two about">
+      <div class="photo"><div><span data-ico="personne"></span>Photo du PDG</div></div>
+      <div>
+        <p class="kicker">À propos</p>
+        <h2>Une maison guinéenne, ouverte sur le monde.</h2>
+        <p>Basés à Matam, Conakry, nous importons et distribuons des produits agricoles et alimentaires, en Guinée et en Afrique de l'Ouest.</p>
+        <cite>M. Talibé Diallo<small>Président-Directeur Général</small></cite>
+      </div>
     </div>
   </section>
 
   <section class="onion">
-    <div class="container">
-      <p class="kicker">Activité phare</p>
-      <h2>Importation d'oignons.</h2>
-      <p class="lead">Rouges, jaunes ou blancs, en sacs de 25 ou 50 kg, par conteneurs complets. Nous recherchons des exportateurs sérieux.</p>
-      <a href="#fournisseur" class="btn">Proposer des oignons</a>
+    <div class="container two">
+      <div>
+        <p class="kicker">Activité phare</p>
+        <h2>Importation d'oignons.</h2>
+        <p class="lead">Rouges, jaunes ou blancs, en sacs de 25 ou 50 kg, par conteneurs complets. Nous recherchons des exportateurs sérieux.</p>
+        <a href="#fournisseur" class="btn">Proposer des oignons</a>
+      </div>
+      <div class="photo"><div><span data-ico="photo"></span>Photo : sacs d'oignons</div></div>
     </div>
   </section>
 
   <section id="fournisseur">
-    <div class="container two">
+    <div class="container two top">
       <div>
         <p class="kicker">Devenir fournisseur</p>
         <h2>Producteur ou exportateur ?</h2>
@@ -137,8 +186,16 @@
     </div>
   </section>
 
+  <section id="actualites">
+    <div class="container">
+      <p class="kicker">Actualités</p>
+      <h2>Les dernières nouvelles.</h2>
+      <div class="news" id="news"></div>
+    </div>
+  </section>
+
   <section id="contact">
-    <div class="container two">
+    <div class="container two top">
       <div>
         <p class="kicker">Contact</p>
         <h2>Un devis ?</h2>
@@ -165,8 +222,11 @@
 
   <script src="../commun/satina.js"></script>
   <script>
-    const S = SATINA;
-    document.getElementById("produits-list").innerHTML = S.produits.map(p => `<span${p.vedette ? ' class="phare"' : ""}>${p.nom}</span>`).join("");
+    const S = SATINA, $ = id => document.getElementById(id);
+    $("produitsGrid").innerHTML = S.produits.map(p => `
+      <div class="product${p.vedette ? " phare" : ""}"><div class="photo">${S.ico(p.id)}</div><h3>${p.nom}</h3><small>${p.format}</small></div>`).join("");
+    $("news").innerHTML = S.actualites.map(a => `
+      <article><div class="photo">${S.ico("photo")}</div><small>${a.date}</small><h3>${a.t}</h3></article>`).join("");
     document.querySelectorAll("form[data-form]").forEach(f => S.formulaire(f, "btn"));
     S.init();
   </script>
